@@ -3,7 +3,7 @@ layout: post
 title:  "My new Jekyll blog."
 excerpt: "After a short hiatus I'm back, with a new platform to host my technology blog."
 date:   2016-04-23 17:00:21 +0100
-categories: blog
+categories: posts
 author: luke_griffith
 ---
 

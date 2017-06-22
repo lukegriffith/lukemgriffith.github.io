@@ -3,7 +3,7 @@ layout: post
 title:  "Inheritance in PowerShell DSC resources."
 excerpt: "Last week i made a blog post about the DSC framework and its limitations, I can now withdraw that statement."
 date:   2016-06-16 20:00:21 +0100
-categories: articles
+categories: posts
 author: luke_griffith
 ---
 

@@ -3,7 +3,7 @@ layout: post
 title:  "PSObjects"
 excerpt: "A post about PowerShell objects."
 date:   2016-11-28 22:00:21 +0000
-categories: documentation
+categories: posts
 author: luke_griffith
 ---
 

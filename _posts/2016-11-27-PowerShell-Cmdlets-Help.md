@@ -3,7 +3,7 @@ layout: post
 title:  "PowerShell, Cmdlets & Help"
 excerpt: "What is PowerShell, and an introduction to Cmdlets and the help system."
 date:   2016-11-27 21:00:21 +0100
-categories: documentation
+categories: posts
 author: luke_griffith
 ---
 

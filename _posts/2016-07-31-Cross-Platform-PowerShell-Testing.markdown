@@ -3,7 +3,7 @@ layout: post
 title:  "Cross Platform PowerShell Testing."
 excerpt: "So, my home rig is a custom build desktop PC running windows 10 but before i discovered PowerShell..."
 date:   2016-07-31 17:00:21 +0100
-categories: articles
+categories: posts
 author: luke_griffith
 ---
 
