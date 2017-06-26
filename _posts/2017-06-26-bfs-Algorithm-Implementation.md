@@ -8,7 +8,7 @@ author: luke_griffith
 published: false
 
 custom_css:
-- "bfs_layout"
+- "bfs/bfs_layout"
 
 custom_footer_js:
 - "bfs/Grid"
