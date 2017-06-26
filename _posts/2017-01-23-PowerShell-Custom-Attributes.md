@@ -2,7 +2,7 @@
 layout: post
 title:  "Custom function and property attributes."
 excerpt: "A post about PowerShell objects."
-date:   2016-11-28 22:00:21 +0000
+date:   2017-01-23 22:00:21 +0000
 categories: posts
 author: luke_griffith
 ---

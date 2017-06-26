@@ -6,7 +6,7 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: Jabbering from a child of the internet.
+title: Luke Griffith
 email: lukemgriffith@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   Luke's place to talk about work and studies.
@@ -17,5 +17,3 @@ github_username:  lukemgriffith
 
 # Build settings
 markdown: kramdown
-
-theme: jekyll-theme-modernist
