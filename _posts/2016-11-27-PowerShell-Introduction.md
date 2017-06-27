@@ -4,6 +4,7 @@ title:  "PowerShell Introduction Series"
 excerpt: "A Number of articles introducting PowerShell."
 date:   2016-11-27 20:00:21 +0100
 categories: posts
+tag: powershell
 author: luke_griffith
 ---
 

@@ -6,12 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Luke Griffith</title>
-  <meta name="description" content="Luke's place to talk about work and studies.
-">
+  <title>My new Jekyll blog.</title>
+  <meta name="description" content="After a short hiatus I'm back, with a new platform to host my technology blog.">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://www.lukegriffith.co.uk/">
+  <link rel="canonical" href="http://www.lukegriffith.co.uk/posts/2016/04/23/My-New-Jekyll-Blog.html">
   <link rel="alternate" type="application/rss+xml" title="Luke Griffith" href="http://www.lukegriffith.co.uk/feed.xml">
 
   
@@ -59,80 +58,45 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <div class="home">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <h1 class="page-heading">Posts</h1>
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">My new Jekyll blog.</h1>
+    <p class="post-meta"><time datetime="2016-04-23T17:00:21+01:00" itemprop="datePublished">Apr 23, 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">luke_griffith</span></span></p>
+  </header>
 
-  <ul class="post-list">
-    
-      <li>
-        <span class="post-meta">Jan 23, 2017</span>
+  <div class="post-content" itemprop="articleBody">
+    <p>After a short hiatus I’m back, with a new platform to host my technology blog, I’ve moved to a Jekyll backed static page project, what is simple to deploy and has me very happy with the automation potential around the deployment process.</p>
 
-        <h2>
-          <a class="post-link" href="/posts/2017/01/23/PowerShell-Custom-Attributes.html">Custom function and property attributes.</a>
-          <p class="sub-title"><em>powershell</em></p>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 28, 2016</span>
+<p>Its enabled me to reduce the cost of my hosting to mere pennies while still having full control of all aspects of its hosting environment.</p>
 
-        <h2>
-          <a class="post-link" href="/posts/2016/11/28/PowerShell-PSObjects.html">PSObjects</a>
-          <p class="sub-title"><em>powershell</em></p>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 27, 2016</span>
+<h1 id="install">Install</h1>
 
-        <h2>
-          <a class="post-link" href="/posts/2016/11/27/PowerShell-Cmdlets-Help.html">PowerShell, Cmdlets & Help</a>
-          <p class="sub-title"><em>powershell</em></p>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 27, 2016</span>
+<p>Installing the required bits to my development environment was two commands using <a href="https://chocolatey.org/">chocolatey</a></p>
 
-        <h2>
-          <a class="post-link" href="/posts/2016/11/27/PowerShell-Introduction.html">PowerShell Introduction Series</a>
-          <p class="sub-title"><em>powershell</em></p>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Jul 31, 2016</span>
+<figure class="highlight"><pre><code class="language-powershell" data-lang="powershell">choco install ruby -y
+gem install jekyll</code></pre></figure>
 
-        <h2>
-          <a class="post-link" href="/posts/2016/07/31/Cross-Platform-PowerShell-Testing.html">Cross Platform PowerShell Testing.</a>
-          <p class="sub-title"><em>powershell</em></p>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Jun 16, 2016</span>
+<p>Chocolately installs ruby what inturn allows me to install Jekyll what is a ruby gem.</p>
 
-        <h2>
-          <a class="post-link" href="/posts/2016/06/16/DSC-Inheritance.html">Inheritance in PowerShell DSC resources.</a>
-          <p class="sub-title"><em>powershell</em></p>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Apr 23, 2016</span>
+<p>I can create a new blank Jekyll site by running the following after installing Jekyll.</p>
 
-        <h2>
-          <a class="post-link" href="/posts/2016/04/23/My-New-Jekyll-Blog.html">My new Jekyll blog.</a>
-          <p class="sub-title"><em>blogging</em></p>
-        </h2>
-      </li>
-    
-  </ul>
+<figure class="highlight"><pre><code class="language-powershell" data-lang="powershell">jekyll create</code></pre></figure>
 
-  <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
+<p>and I can host the site using the Jekyll webserver with</p>
 
-</div>
+<figure class="highlight"><pre><code class="language-powershell" data-lang="powershell">jekyll serve </code></pre></figure>
+
+<h1 id="configuration-and-posts">configuration and posts</h1>
+
+<p>The _config.yml file allows you to set specific site variables, like description, title and input your github and Twitter usernames. Making a new blog post is simple, create a new markdown file in the _posts folder with the filename representative of the location, for example www.lukemgriffith.co.uk/2016/04/27/myfirstblogpost.HTML would be a file called 2016-04-27-myfirstblogpost.markdown.</p>
+
+<p>More to come on how I’ve automated my build an release process, this is more of a hello I’m here again, with a new site type post.</p>
+
+
+  </div>
+
+</article>
 
       </div>
     </div>

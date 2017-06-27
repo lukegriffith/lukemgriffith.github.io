@@ -4,6 +4,7 @@ title:  "Implementing Breadth-first search."
 excerpt: "Writing up a simple algorithm."
 date:   2017-06-25 22:00:21 +0000
 categories: posts
+tag: javascript
 author: luke_griffith
 published: false
 

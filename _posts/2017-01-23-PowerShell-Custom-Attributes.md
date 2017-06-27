@@ -4,6 +4,7 @@ title:  "Custom function and property attributes."
 excerpt: "A post about PowerShell objects."
 date:   2017-01-23 22:00:21 +0000
 categories: posts
+tag: powershell
 author: luke_griffith
 ---
 

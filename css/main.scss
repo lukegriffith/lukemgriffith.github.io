@@ -29,6 +29,16 @@ $on-palm:          600px;
 $on-laptop:        800px;
 
 
+// custom rules
+
+.post-list .sub-title {
+    font-size: 11px;
+}
+
+//
+
+
+
 
 // Use media queries like this:
 // @include media-query($on-palm) {
