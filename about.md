@@ -21,7 +21,7 @@ He is enthusiastic to learn about the development world and exploring different 
 - Scripting with PowerShell & Python
 - Process Automation
 - CI/CD pipelines
-- Configuration Management & Module development (Ansible and DSC)
+- Configuration Management & Module development (Ansible and PowerShell DSC)
 - Infrastructure as code
 - Chocolatey
 - Nuget Infrastructure 
