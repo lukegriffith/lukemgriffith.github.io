@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://lukemgriffith.github.io/blog/vpc-flow-log-woes/</loc>
+    <lastmod>2018-05-09T23:31:57+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://lukemgriffith.github.io/code/</loc>
     <lastmod>2018-02-05T00:59:10+00:00</lastmod>
   </url>
@@ -18,13 +23,34 @@
   </url>
   
   <url>
+    <loc>https://lukemgriffith.github.io/blog/custom-function-and-property-attributes/</loc>
+    <lastmod>2017-01-23T22:00:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://lukemgriffith.github.io/blog/cross-platform-powershell-testing/</loc>
+    <lastmod>2016-07-31T17:00:21+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://lukemgriffith.github.io/blog/inheritance-in-powershell-dsc-resources/</loc>
+    <lastmod>2016-06-16T20:00:21+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://lukemgriffith.github.io/blog/</loc>
+    <lastmod>2018-05-09T23:31:57+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://lukemgriffith.github.io/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://lukemgriffith.github.io/</loc>
-    <lastmod>2018-02-05T00:59:10+00:00</lastmod>
+    <lastmod>2018-05-09T23:31:57+01:00</lastmod>
     <priority>0</priority>
   </url>
   

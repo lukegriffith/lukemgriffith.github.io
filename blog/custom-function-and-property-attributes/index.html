@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Luke Griffith">
+<meta name="description" content="Why do you want this? These decorations can be added to powershell elements to provide more information via reflection to outside frameworks, allowing for more modular and extensible module design.
+Property attributes These can be applied to properties of classes to give extra meaning to it, effectively adding meta data. This meta data can be used by PowerShell developers to utilize framework instructions when working with an application. This type of scenario might come when you&rsquo;re wanting to map class properties to API queries.">
+
+<meta property="og:title" content="Custom function and property attributes" />
+<meta property="og:description" content="Why do you want this? These decorations can be added to powershell elements to provide more information via reflection to outside frameworks, allowing for more modular and extensible module design.
+Property attributes These can be applied to properties of classes to give extra meaning to it, effectively adding meta data. This meta data can be used by PowerShell developers to utilize framework instructions when working with an application. This type of scenario might come when you&rsquo;re wanting to map class properties to API queries." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://lukemgriffith.github.io/blog/custom-function-and-property-attributes/" />
+
+
+
+<meta property="article:published_time" content="2017-01-23T22:00:21&#43;00:00"/>
+
+<meta property="article:modified_time" content="2017-01-23T22:00:21&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+<title>
+
+
+     Custom function and property attributes 
+
+</title>
+<link rel="canonical" href="https://lukemgriffith.github.io/blog/custom-function-and-property-attributes/">
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="https://lukemgriffith.github.io/css/reset.css?t=2018-05-10%2000%3a02%3a22.757024%20%2b0100%20BST%20m%3d%2b0.059701147">
+    <link rel="stylesheet" href="https://lukemgriffith.github.io/css/pygments.css?t=2018-05-10%2000%3a02%3a22.757024%20%2b0100%20BST%20m%3d%2b0.059701147">
+    <link rel="stylesheet" href="https://lukemgriffith.github.io/css/main.css?t=2018-05-10%2000%3a02%3a22.757024%20%2b0100%20BST%20m%3d%2b0.059701147">
+    
+        <link rel="stylesheet" href="https://lukemgriffith.github.io/css/override.css?t=2018-05-10%2000%3a02%3a22.757024%20%2b0100%20BST%20m%3d%2b0.059701147">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://lukemgriffith.github.io/img/leaf.ico"
+
+>
+
+
+
+
+
+
+
+
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                
+                <a href="https://lukemgriffith.github.io/"><img class="avatar" src="https://lukemgriffith.github.io/img/profile.jpg" srcset="https://lukemgriffith.github.io/img/profile.jpg 1x"></a>
+            
+            <a href="https://lukemgriffith.github.io/"><div class="name">Luke Griffith</div></a>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-blog"><a href="https://lukemgriffith.github.io/blog/"><span>blog</span></a></li>
+                    
+                        <li class="nav-about"><a href="https://lukemgriffith.github.io/about/"><span>About</span></a></li>
+                    
+                        <li class="nav-code"><a href="https://lukemgriffith.github.io/code/"><span>Code</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+        
+            <a href="//github.com/lukemgriffith" target="_blank" rel="noopener"><img class="icon" src="https://lukemgriffith.github.io/img/github.svg" alt="github" /></a>
+        
+
+        
+            <a href="//twitter.com/lukemgriffith" target="_blank" rel="noopener"><img class="icon" src="https://lukemgriffith.github.io/img/twitter.svg" alt="twitter" /></a>
+        
+
+	
+
+        
+
+        
+
+        
+            <a href="//linkedin.com/in/lukemgriffith" target="_blank" rel="noopener"><img class="icon" src="https://lukemgriffith.github.io/img/linkedin.svg" alt="linkedin" /></a>
+        
+
+        
+
+        
+            <a href="//instagram.com/_lukem" target="_blank" rel="noopener"><img class="icon" src="https://lukemgriffith.github.io/img/instagram.svg" alt="instagram" /></a>
+        
+
+        
+
+        
+
+        
+            <a href="mailto:lukemgriffith@gmail.com"><img class="icon" src="https://lukemgriffith.github.io/img/email.svg" alt="email" /></a>
+        
+
+        
+
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Custom function and property attributes
+
+</div>
+
+                    <div class="initials"><a href="https://lukemgriffith.github.io/">ad</a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Mon Jan 23 2017 22:00:21 GMT'>Jan 23, 2017</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>2 minutes read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                
+
+<h1 id="why-do-you-want-this">Why do you want this?</h1>
+
+<p>These decorations can be added to powershell elements to provide more information via reflection to outside frameworks, allowing for more modular and extensible module design.</p>
+
+<h1 id="property-attributes">Property attributes</h1>
+
+<p>These can be applied to properties of classes to give extra meaning to it, effectively adding meta data. This meta data can be used by PowerShell developers to utilize framework instructions when working with an application.
+This type of scenario might come when you&rsquo;re wanting to map class properties to API queries.</p>
+
+<pre><code class="language-PowerShell">
+&lt;#
+    .Notes
+        Created: 23/01/2017 
+        Author: Luke Griffith
+
+    .Synopsis
+        Creates a property attribute that can be mapped to class properties.
+
+    .Description
+        apiObject informs the Mapper that this property is a member 
+        of the API and should be mapped accordingly.
+
+    .Example
+        class Software {
+            [apiObject(shouldQuery=$true)]
+            [String]$Name   
+            ...
+    
+#&gt;
+class apiObject : System.Attribute {
+    [bool]$shouldQuery
+}
+</code></pre>
+
+<p>Above we&rsquo;ve defined the apiObject, inheriting from the System.Attribute class it inherits the required functionality to make this class an attribute.
+Now I can use the class to add metadata to properties.</p>
+
+<pre><code class="language-PowerShell">
+class Software {
+
+    [apiObject(shouldQuery=$true)]
+    [String]$Name
+
+    Software([apiMapper]$mapper){
+
+    }
+
+}
+
+</code></pre>
+
+<p>Now we can create a software class, and add the attribute to any property. We can reflect on the property to obtain the named arguments.</p>
+
+<pre><code class="language-PowerShell">
+[Software].GetProperties().Where{$_.Name -eq &quot;Name&quot;}
+
+</code></pre>
+
+<h1 id="function-attributes">Function attributes</h1>
+
+<p>These can be added to powershell functions, just like the [CmdletBinding()] class. These can be pulled back from the FunctionInfo object.</p>
+
+<pre><code class="language-PowerShell">
+
+# enum for class options
+enum httpMethods {
+
+    GET
+    PUT
+    POST
+    DELETE
+
+}
+
+&lt;#
+    .Notes 
+    Luke Griffith
+    23/01/17
+
+    .Synopsis
+    Function attribute that interfaces with WebModule
+
+    .Description
+    Can be used to add WebModule properties like route, and method.
+
+#&gt;
+class Web : System.Management.Automation.CmdletCommonMetadataAttribute { 
+
+    [httpMethods]$Method
+    [string]$Route
+
+    Web(){ 
+
+    }
+}
+
+&lt;#
+    .Notes 
+    Luke Griffith
+    23/01/17
+
+    .Synopsis 
+    Obtains host data from the config database registry.
+
+    .Description
+    Using the ConfigDB module, it queries the registry for the computer name provided.
+#&gt;
+function Get-HostData {
+    [Web(Method=&quot;GET&quot;, Route=&quot;api/hosts&quot;)]
+    param(
+        [String]$ComputerName
+    )
+
+    Get-ConfigDBItem $ComputerName
+}
+
+
+</code></pre>
+
+<p>In the above example, I&rsquo;ve coded out a Web function attribute and this can be added to the function much like the CmdletBinding attribute.
+In this case, the attributes provide a web framework data around the HTML route for this function to be called at, and what method it takes.</p>
+
+<p>To obtain this metadata, I just need to get the FunctionInfo.</p>
+
+<pre><code class="language-PowerShell">$function = Get-Command Get-HostData
+
+$function.ScriptBlock.Attributes
+
+
+# Method                  : GET
+# Route                   : api/hosts
+# DefaultParameterSetName : 
+# SupportsShouldProcess   : False
+# SupportsPaging          : False
+# SupportsTransactions    : False
+# ConfirmImpact           : Medium
+# HelpUri                 : 
+# RemotingCapability      : PowerShell
+# TypeId                  : Web
+
+</code></pre>
+
+                <br>
+		<p class="back-to-posts"><a href="https://lukemgriffith.github.io/blog/">Back to posts</a></p>
+            </div>
+            <br>
+            <div class="disqus">
+                
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-123-45', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+
+</body>
+</html>
+
