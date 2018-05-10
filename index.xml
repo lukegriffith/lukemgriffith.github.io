@@ -22,36 +22,6 @@ I&amp;rsquo;ve replicated the problem in this terraform module. At line 79 in ma
     </item>
     
     <item>
-      <title>Code</title>
-      <link>https://lukemgriffith.github.io/code/</link>
-      <pubDate>Mon, 05 Feb 2018 00:59:10 +0000</pubDate>
-      
-      <guid>https://lukemgriffith.github.io/code/</guid>
-      <description>Opensource Contributions cChoco/cChocoFeature (#5b57ef4) Development of a DSC resource to set Chocolatey client features via configuration management.
-Personal Projects MonzoToYnab (Git) Monzo is a UK based online first bank. Ynab is a budgeting application that allows you to track expenses and keep monthly pots. Unfortunately Ynab does not support auto syncing with pretty much all UK banks but offers a great REST api and Monzo supports transaction webhooks.
-I implemented a simple lambda function that executed via an API gateway, and registered the function with Monzo, automatically adding my transactions to my budgeting app.</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://lukemgriffith.github.io/about/</link>
-      <pubDate>Mon, 05 Feb 2018 00:58:52 +0000</pubDate>
-      
-      <guid>https://lukemgriffith.github.io/about/</guid>
-      <description>Luke is a passionate and highly focused individual, dedicated to learning about technology and its implementation. With over 7 years of IT experience working with business critical infrastructure, and applications. His primary skills set is around infrastructure and os, automation, configuration and testing.
-He has a long background supporting and engineering Windows based solutions, but is familiar and comfortable with Linux and is most at home at the shell.</description>
-    </item>
-    
-    <item>
-      <title>Blog</title>
-      <link>https://lukemgriffith.github.io/blog/</link>
-      <pubDate>Mon, 05 Feb 2018 00:42:20 +0000</pubDate>
-      
-      <guid>https://lukemgriffith.github.io/blog/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Custom function and property attributes</title>
       <link>https://lukemgriffith.github.io/blog/custom-function-and-property-attributes/</link>
       <pubDate>Mon, 23 Jan 2017 22:00:21 +0000</pubDate>
