@@ -16,23 +16,8 @@ I&rsquo;ve replicated the problem in this terraform module. At line 79 in main.t
 <meta property="og:description" content="I believe I&rsquo;ve identified a bug where the VPCFlowLogs verbs in ec2, create, describe and delete do not work when a source IP condition is applied against the policy.
 I&rsquo;ve replicated the problem in this terraform module. At line 79 in main.tf is the role policy attachment that is currently attaching flow_test_policy. This is the IAM policy with the source IP condition in, if used all EC2 actions can be completed except any of the VPC flow actions and can be replicated via the console by navigating to VPC &gt; Your VPCs &gt; Select VPC main &gt; Flow Logs" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://lukemgriffith.github.io/blog/vpc-flow-log-woes/" />
-
-
-
-<meta property="article:published_time" content="2018-05-09T23:31:57&#43;01:00"/>
-
+<meta property="og:url" content="https://lukemgriffith.github.io/blog/vpc-flow-log-woes/" /><meta property="article:published_time" content="2018-05-09T23:31:57&#43;01:00"/>
 <meta property="article:modified_time" content="2018-05-09T23:31:57&#43;01:00"/>
-
-
-
-
-
-
-
-
-
-
 
 
 <title>
@@ -59,11 +44,11 @@ I&rsquo;ve replicated the problem in this terraform module. At line 79 in main.t
 
 
     
-    <link rel="stylesheet" href="https://lukemgriffith.github.io/css/reset.css?t=2018-06-27%2016%3a04%3a47.194732%20%2b0200%20CEST%20m%3d%2b0.061582181">
-    <link rel="stylesheet" href="https://lukemgriffith.github.io/css/pygments.css?t=2018-06-27%2016%3a04%3a47.194732%20%2b0200%20CEST%20m%3d%2b0.061582181">
-    <link rel="stylesheet" href="https://lukemgriffith.github.io/css/main.css?t=2018-06-27%2016%3a04%3a47.194732%20%2b0200%20CEST%20m%3d%2b0.061582181">
+    <link rel="stylesheet" href="https://lukemgriffith.github.io/css/reset.css?t=2018-12-02%2016%3a11%3a40.129647%20%2b0000%20GMT%20m%3d%2b0.099984701">
+    <link rel="stylesheet" href="https://lukemgriffith.github.io/css/pygments.css?t=2018-12-02%2016%3a11%3a40.129647%20%2b0000%20GMT%20m%3d%2b0.099984701">
+    <link rel="stylesheet" href="https://lukemgriffith.github.io/css/main.css?t=2018-12-02%2016%3a11%3a40.129647%20%2b0000%20GMT%20m%3d%2b0.099984701">
     
-        <link rel="stylesheet" href="https://lukemgriffith.github.io/css/override.css?t=2018-06-27%2016%3a04%3a47.194732%20%2b0200%20CEST%20m%3d%2b0.061582181">
+        <link rel="stylesheet" href="https://lukemgriffith.github.io/css/override.css?t=2018-12-02%2016%3a11%3a40.129647%20%2b0000%20GMT%20m%3d%2b0.099984701">
     
 
 
@@ -95,8 +80,6 @@ I&rsquo;ve replicated the problem in this terraform module. At line 79 in main.t
                 
                 
                 
-                
-                    
                 
                     
                 
@@ -180,7 +163,7 @@ I&rsquo;ve replicated the problem in this terraform module. At line 79 in main.t
                 </div>
                 <div class="meta">
                     
-                    <div class="date" title='Wed May 9 2018 23:31:57 &#43;0100'>May 9, 2018</div>
+                    <div class="date" title='Wed May 9 2018 23:31:57 BST'>May 9, 2018</div>
                     
                     
 		    <div class="reading-time"><div class="middot"></div>2 minutes read</div>
