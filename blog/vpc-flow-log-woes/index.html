@@ -17,22 +17,8 @@ I&rsquo;ve replicated the problem in this terraform module. At line 79 in main.t
 I&rsquo;ve replicated the problem in this terraform module. At line 79 in main.tf is the role policy attachment that is currently attaching flow_test_policy. This is the IAM policy with the source IP condition in, if used all EC2 actions can be completed except any of the VPC flow actions and can be replicated via the console by navigating to VPC &gt; Your VPCs &gt; Select VPC main &gt; Flow Logs" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lukemgriffith.github.io/blog/vpc-flow-log-woes/" />
-
-
-
-<meta property="article:published_time" content="2018-05-09T23:31:57&#43;01:00"/>
-
-<meta property="article:modified_time" content="2018-05-09T23:31:57&#43;01:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2018-05-09T23:31:57+01:00" />
+<meta property="article:modified_time" content="2018-05-09T23:31:57+01:00" />
 
 
 <title>
@@ -59,11 +45,11 @@ I&rsquo;ve replicated the problem in this terraform module. At line 79 in main.t
 
 
     
-    <link rel="stylesheet" href="https://lukemgriffith.github.io/css/reset.css?t=2019-02-23%2016%3a58%3a37.812480879%20%2b0000%20GMT%20m%3d%2b0.040757409">
-    <link rel="stylesheet" href="https://lukemgriffith.github.io/css/pygments.css?t=2019-02-23%2016%3a58%3a37.812480879%20%2b0000%20GMT%20m%3d%2b0.040757409">
-    <link rel="stylesheet" href="https://lukemgriffith.github.io/css/main.css?t=2019-02-23%2016%3a58%3a37.812480879%20%2b0000%20GMT%20m%3d%2b0.040757409">
+    <link rel="stylesheet" href="https://lukemgriffith.github.io/css/reset.css?t=2019-07-30%2021%3a45%3a44.42365175%20%2b0100%20BST%20m%3d%2b0.034832848">
+    <link rel="stylesheet" href="https://lukemgriffith.github.io/css/pygments.css?t=2019-07-30%2021%3a45%3a44.42365175%20%2b0100%20BST%20m%3d%2b0.034832848">
+    <link rel="stylesheet" href="https://lukemgriffith.github.io/css/main.css?t=2019-07-30%2021%3a45%3a44.42365175%20%2b0100%20BST%20m%3d%2b0.034832848">
     
-        <link rel="stylesheet" href="https://lukemgriffith.github.io/css/override.css?t=2019-02-23%2016%3a58%3a37.812480879%20%2b0000%20GMT%20m%3d%2b0.040757409">
+        <link rel="stylesheet" href="https://lukemgriffith.github.io/css/override.css?t=2019-07-30%2021%3a45%3a44.42365175%20%2b0100%20BST%20m%3d%2b0.034832848">
     
 
 
@@ -128,6 +114,8 @@ I&rsquo;ve replicated the problem in this terraform module. At line 79 in main.t
         
 
         
+
+        
             <a href="//twitter.com/lukemgriffith" target="_blank" rel="noopener"><img class="icon" src="https://lukemgriffith.github.io/img/twitter.svg" alt="twitter" /></a>
         
 
@@ -139,6 +127,8 @@ I&rsquo;ve replicated the problem in this terraform module. At line 79 in main.t
 
         
             <a href="//linkedin.com/in/lukemgriffith" target="_blank" rel="noopener"><img class="icon" src="https://lukemgriffith.github.io/img/linkedin.svg" alt="linkedin" /></a>
+        
+
         
 
         
@@ -215,7 +205,8 @@ I&rsquo;ve replicated the problem in this terraform module. At line 79 in main.t
 <p>This also occurs when a policy, without source IP filtering is applied over the top just for the VPC Flow Logs, what makes me think the creation of the flow log requires more than just ec2:CreateFlowLogs</p>
 
                 <br>
-		<p class="back-to-posts"><a href="https://lukemgriffith.github.io/blog/">Back to posts</a></p>
+                
+                <p class="back-to-posts"><a href="https://lukemgriffith.github.io/blog">Back to posts</a></p>
             </div>
             <br>
             <div class="disqus">
