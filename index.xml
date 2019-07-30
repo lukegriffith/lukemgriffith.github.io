@@ -12,16 +12,6 @@
     
     
     <item>
-      <title>DevOps vs Automation</title>
-      <link>https://lukemgriffith.github.io/blog/devops-vs-automation/</link>
-      <pubDate>Tue, 19 Mar 2019 22:56:00 +0000</pubDate>
-      
-      <guid>https://lukemgriffith.github.io/blog/devops-vs-automation/</guid>
-      <description>Automation to me feels like the guy from Jurassic Park, the first movie - the programmer dude whos meant to be super obnoxious and creates the entire automation for the whole park, only problem is. When he gets eaten by the raptor the entire system is stuck without his access keys.
-They&amp;rsquo;re stuck on an island with dinosaurs wandering around with no doors working and all the lights are off that is not a place you want to be in.</description>
-    </item>
-    
-    <item>
       <title>Monzo to Ynab connector</title>
       <link>https://lukemgriffith.github.io/projects/monzotoynab/</link>
       <pubDate>Thu, 10 May 2018 00:55:10 +0000</pubDate>
