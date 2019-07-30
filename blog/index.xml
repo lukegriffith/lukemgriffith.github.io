@@ -2,50 +2,50 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blog on Luke Griffith</title>
-    <link>https://lukemgriffith.github.io/blog/</link>
+    <link>https://www.lukegriffith.co.uk/blog/</link>
     <description>Recent content in Blog on Luke Griffith</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Mon, 05 Feb 2018 00:42:20 +0000</lastBuildDate>
     
-	<atom:link href="https://lukemgriffith.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.lukegriffith.co.uk/blog/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>VPC Flow Log Woes</title>
-      <link>https://lukemgriffith.github.io/blog/vpc-flow-log-woes/</link>
+      <link>https://www.lukegriffith.co.uk/blog/vpc-flow-log-woes/</link>
       <pubDate>Wed, 09 May 2018 23:31:57 +0100</pubDate>
       
-      <guid>https://lukemgriffith.github.io/blog/vpc-flow-log-woes/</guid>
+      <guid>https://www.lukegriffith.co.uk/blog/vpc-flow-log-woes/</guid>
       <description>I believe I&amp;rsquo;ve identified a bug where the VPCFlowLogs verbs in ec2, create, describe and delete do not work when a source IP condition is applied against the policy.
 I&amp;rsquo;ve replicated the problem in this terraform module. At line 79 in main.tf is the role policy attachment that is currently attaching flow_test_policy. This is the IAM policy with the source IP condition in, if used all EC2 actions can be completed except any of the VPC flow actions and can be replicated via the console by navigating to VPC &amp;gt; Your VPCs &amp;gt; Select VPC main &amp;gt; Flow Logs</description>
     </item>
     
     <item>
       <title>Custom function and property attributes</title>
-      <link>https://lukemgriffith.github.io/blog/custom-function-and-property-attributes/</link>
+      <link>https://www.lukegriffith.co.uk/blog/custom-function-and-property-attributes/</link>
       <pubDate>Mon, 23 Jan 2017 22:00:21 +0000</pubDate>
       
-      <guid>https://lukemgriffith.github.io/blog/custom-function-and-property-attributes/</guid>
+      <guid>https://www.lukegriffith.co.uk/blog/custom-function-and-property-attributes/</guid>
       <description>Why do you want this? These decorations can be added to powershell elements to provide more information via reflection to outside frameworks, allowing for more modular and extensible module design.
 Property attributes These can be applied to properties of classes to give extra meaning to it, effectively adding meta data. This meta data can be used by PowerShell developers to utilize framework instructions when working with an application. This type of scenario might come when you&amp;rsquo;re wanting to map class properties to API queries.</description>
     </item>
     
     <item>
       <title>Cross Platform PowerShell Testing</title>
-      <link>https://lukemgriffith.github.io/blog/cross-platform-powershell-testing/</link>
+      <link>https://www.lukegriffith.co.uk/blog/cross-platform-powershell-testing/</link>
       <pubDate>Sun, 31 Jul 2016 17:00:21 +0100</pubDate>
       
-      <guid>https://lukemgriffith.github.io/blog/cross-platform-powershell-testing/</guid>
+      <guid>https://www.lukegriffith.co.uk/blog/cross-platform-powershell-testing/</guid>
       <description>The Problems. So, my home rig is a custom build desktop PC running windows 10 but before i discovered PowerShell i was trying to learn Python and UNIX systems so i bought a mac and started learning BASH. When i got into really into PowerShell development I made the (terrible) decision to install win10 using bootcamp so I could shell all the time. I brought the reliability of Windows with the price tag of a Mac.</description>
     </item>
     
     <item>
       <title>Inheritance in PowerShell DSC resources</title>
-      <link>https://lukemgriffith.github.io/blog/inheritance-in-powershell-dsc-resources/</link>
+      <link>https://www.lukegriffith.co.uk/blog/inheritance-in-powershell-dsc-resources/</link>
       <pubDate>Thu, 16 Jun 2016 20:00:21 +0100</pubDate>
       
-      <guid>https://lukemgriffith.github.io/blog/inheritance-in-powershell-dsc-resources/</guid>
+      <guid>https://www.lukegriffith.co.uk/blog/inheritance-in-powershell-dsc-resources/</guid>
       <description>Intro Last week i made a blog post about the DSC framework and its limitations, I can now withdraw that statement. for me it was a learning experience and taught me to always test on multiple versions and operating systems before you come to a theory.
 This post is to show an example of how to use the DSC framework in a better way, to hopefully reduce code smells and reduce repetitive code use, keeping close to agile principles.</description>
     </item>

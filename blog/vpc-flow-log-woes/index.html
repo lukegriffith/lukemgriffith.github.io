@@ -16,7 +16,7 @@ I&rsquo;ve replicated the problem in this terraform module. At line 79 in main.t
 <meta property="og:description" content="I believe I&rsquo;ve identified a bug where the VPCFlowLogs verbs in ec2, create, describe and delete do not work when a source IP condition is applied against the policy.
 I&rsquo;ve replicated the problem in this terraform module. At line 79 in main.tf is the role policy attachment that is currently attaching flow_test_policy. This is the IAM policy with the source IP condition in, if used all EC2 actions can be completed except any of the VPC flow actions and can be replicated via the console by navigating to VPC &gt; Your VPCs &gt; Select VPC main &gt; Flow Logs" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://lukemgriffith.github.io/blog/vpc-flow-log-woes/" />
+<meta property="og:url" content="https://www.lukegriffith.co.uk/blog/vpc-flow-log-woes/" />
 <meta property="article:published_time" content="2018-05-09T23:31:57+01:00" />
 <meta property="article:modified_time" content="2018-05-09T23:31:57+01:00" />
 
@@ -27,7 +27,7 @@ I&rsquo;ve replicated the problem in this terraform module. At line 79 in main.t
      VPC Flow Log Woes 
 
 </title>
-<link rel="canonical" href="https://lukemgriffith.github.io/blog/vpc-flow-log-woes/">
+<link rel="canonical" href="https://www.lukegriffith.co.uk/blog/vpc-flow-log-woes/">
 
 
 
@@ -45,11 +45,11 @@ I&rsquo;ve replicated the problem in this terraform module. At line 79 in main.t
 
 
     
-    <link rel="stylesheet" href="https://lukemgriffith.github.io/css/reset.css?t=2019-07-30%2022%3a38%3a26.841357977%20%2b0100%20BST%20m%3d%2b0.042798714">
-    <link rel="stylesheet" href="https://lukemgriffith.github.io/css/pygments.css?t=2019-07-30%2022%3a38%3a26.841357977%20%2b0100%20BST%20m%3d%2b0.042798714">
-    <link rel="stylesheet" href="https://lukemgriffith.github.io/css/main.css?t=2019-07-30%2022%3a38%3a26.841357977%20%2b0100%20BST%20m%3d%2b0.042798714">
+    <link rel="stylesheet" href="https://www.lukegriffith.co.uk/css/reset.css?t=2019-07-30%2022%3a40%3a59.823699713%20%2b0100%20BST%20m%3d%2b0.033878266">
+    <link rel="stylesheet" href="https://www.lukegriffith.co.uk/css/pygments.css?t=2019-07-30%2022%3a40%3a59.823699713%20%2b0100%20BST%20m%3d%2b0.033878266">
+    <link rel="stylesheet" href="https://www.lukegriffith.co.uk/css/main.css?t=2019-07-30%2022%3a40%3a59.823699713%20%2b0100%20BST%20m%3d%2b0.033878266">
     
-        <link rel="stylesheet" href="https://lukemgriffith.github.io/css/override.css?t=2019-07-30%2022%3a38%3a26.841357977%20%2b0100%20BST%20m%3d%2b0.042798714">
+        <link rel="stylesheet" href="https://www.lukegriffith.co.uk/css/override.css?t=2019-07-30%2022%3a40%3a59.823699713%20%2b0100%20BST%20m%3d%2b0.033878266">
     
 
 
@@ -57,7 +57,7 @@ I&rsquo;ve replicated the problem in this terraform module. At line 79 in main.t
 
 <link rel="shortcut icon"
 
-    href="https://lukemgriffith.github.io/img/leaf.ico"
+    href="https://www.lukegriffith.co.uk/img/leaf.ico"
 
 >
 
@@ -87,18 +87,18 @@ I&rsquo;ve replicated the problem in this terraform module. At line 79 in main.t
                     
                 
                 
-                <a href="https://lukemgriffith.github.io/"><img class="avatar" src="https://lukemgriffith.github.io/img/profile.jpg" srcset="https://lukemgriffith.github.io/img/profile.jpg 1x"></a>
+                <a href="https://www.lukegriffith.co.uk/"><img class="avatar" src="https://www.lukegriffith.co.uk/img/profile.jpg" srcset="https://www.lukegriffith.co.uk/img/profile.jpg 1x"></a>
             
-            <a href="https://lukemgriffith.github.io/"><div class="name">Luke Griffith</div></a>
+            <a href="https://www.lukegriffith.co.uk/"><div class="name">Luke Griffith</div></a>
             
             <nav>
                 <ul>
                     
-                        <li class="nav-blog"><a href="https://lukemgriffith.github.io/blog/"><span>blog</span></a></li>
+                        <li class="nav-blog"><a href="https://www.lukegriffith.co.uk/blog/"><span>blog</span></a></li>
                     
-                        <li class="nav-about"><a href="https://lukemgriffith.github.io/about/"><span>About</span></a></li>
+                        <li class="nav-about"><a href="https://www.lukegriffith.co.uk/about/"><span>About</span></a></li>
                     
-                        <li class="nav-code"><a href="https://lukemgriffith.github.io/code/"><span>Code</span></a></li>
+                        <li class="nav-code"><a href="https://www.lukegriffith.co.uk/code/"><span>Code</span></a></li>
                     
                 </ul>
             </nav>
@@ -110,13 +110,13 @@ I&rsquo;ve replicated the problem in this terraform module. At line 79 in main.t
     <div class="container">
         <div class="content">
         
-            <a href="//github.com/lukemgriffith" target="_blank" rel="noopener"><img class="icon" src="https://lukemgriffith.github.io/img/github.svg" alt="github" /></a>
+            <a href="//github.com/lukemgriffith" target="_blank" rel="noopener"><img class="icon" src="https://www.lukegriffith.co.uk/img/github.svg" alt="github" /></a>
         
 
         
 
         
-            <a href="//twitter.com/lukemgriffith" target="_blank" rel="noopener"><img class="icon" src="https://lukemgriffith.github.io/img/twitter.svg" alt="twitter" /></a>
+            <a href="//twitter.com/lukemgriffith" target="_blank" rel="noopener"><img class="icon" src="https://www.lukegriffith.co.uk/img/twitter.svg" alt="twitter" /></a>
         
 
 	
@@ -126,7 +126,7 @@ I&rsquo;ve replicated the problem in this terraform module. At line 79 in main.t
         
 
         
-            <a href="//linkedin.com/in/lukemgriffith" target="_blank" rel="noopener"><img class="icon" src="https://lukemgriffith.github.io/img/linkedin.svg" alt="linkedin" /></a>
+            <a href="//linkedin.com/in/lukemgriffith" target="_blank" rel="noopener"><img class="icon" src="https://www.lukegriffith.co.uk/img/linkedin.svg" alt="linkedin" /></a>
         
 
         
@@ -134,7 +134,7 @@ I&rsquo;ve replicated the problem in this terraform module. At line 79 in main.t
         
 
         
-            <a href="//instagram.com/_lukem" target="_blank" rel="noopener"><img class="icon" src="https://lukemgriffith.github.io/img/instagram.svg" alt="instagram" /></a>
+            <a href="//instagram.com/_lukem" target="_blank" rel="noopener"><img class="icon" src="https://www.lukegriffith.co.uk/img/instagram.svg" alt="instagram" /></a>
         
 
         
@@ -142,7 +142,7 @@ I&rsquo;ve replicated the problem in this terraform module. At line 79 in main.t
         
 
         
-            <a href="mailto:lukemgriffith@gmail.com"><img class="icon" src="https://lukemgriffith.github.io/img/email.svg" alt="email" /></a>
+            <a href="mailto:lukemgriffith@gmail.com"><img class="icon" src="https://www.lukegriffith.co.uk/img/email.svg" alt="email" /></a>
         
 
         
@@ -164,7 +164,7 @@ I&rsquo;ve replicated the problem in this terraform module. At line 79 in main.t
 
 </div>
 
-                    <div class="initials"><a href="https://lukemgriffith.github.io/">ad</a></div>
+                    <div class="initials"><a href="https://www.lukegriffith.co.uk/">ad</a></div>
                 </div>
                 <div class="meta">
                     
@@ -206,7 +206,7 @@ I&rsquo;ve replicated the problem in this terraform module. At line 79 in main.t
 
                 <br>
                 
-                <p class="back-to-posts"><a href="https://lukemgriffith.github.io/blog">Back to posts</a></p>
+                <p class="back-to-posts"><a href="https://www.lukegriffith.co.uk/blog">Back to posts</a></p>
             </div>
             <br>
             <div class="disqus">
