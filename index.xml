@@ -12,6 +12,18 @@
     
     
     <item>
+      <title>CaptainHook</title>
+      <link>https://www.lukegriffith.co.uk/projects/captainhook/</link>
+      <pubDate>Sat, 29 Aug 2020 00:55:10 +0000</pubDate>
+      
+      <guid>https://www.lukegriffith.co.uk/projects/captainhook/</guid>
+      <description>For my final year project on my BSc computing course at Birkbeck, i designed and created an internet webhook router that can dispatch recieved events to configured targets, parsing the body data and mutating it to match the signatures of downstream API&amp;rsquo;s.
+The project was build in GoLang, and takes a lot of inspiration from software project like Kubernetes or Ansible, with a fully declarative yaml configured interface.
+Repository
+Extract from project report</description>
+    </item>
+    
+    <item>
       <title>Monzo to Ynab connector</title>
       <link>https://www.lukegriffith.co.uk/projects/monzotoynab/</link>
       <pubDate>Thu, 10 May 2018 00:55:10 +0000</pubDate>
