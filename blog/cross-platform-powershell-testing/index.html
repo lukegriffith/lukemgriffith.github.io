@@ -43,11 +43,11 @@
 
 
     
-    <link rel="stylesheet" href="https://www.lukegriffith.co.uk/css/reset.css?t=2019-07-30%2022%3a43%3a00.975720922%20%2b0100%20BST%20m%3d%2b0.042582841">
-    <link rel="stylesheet" href="https://www.lukegriffith.co.uk/css/pygments.css?t=2019-07-30%2022%3a43%3a00.975720922%20%2b0100%20BST%20m%3d%2b0.042582841">
-    <link rel="stylesheet" href="https://www.lukegriffith.co.uk/css/main.css?t=2019-07-30%2022%3a43%3a00.975720922%20%2b0100%20BST%20m%3d%2b0.042582841">
+    <link rel="stylesheet" href="https://www.lukegriffith.co.uk/css/reset.css?t=2020-08-29%2016%3a11%3a58.2065641%20%2b0100%20BST%20m%3d%2b0.084003901">
+    <link rel="stylesheet" href="https://www.lukegriffith.co.uk/css/pygments.css?t=2020-08-29%2016%3a11%3a58.2065641%20%2b0100%20BST%20m%3d%2b0.084003901">
+    <link rel="stylesheet" href="https://www.lukegriffith.co.uk/css/main.css?t=2020-08-29%2016%3a11%3a58.2065641%20%2b0100%20BST%20m%3d%2b0.084003901">
     
-        <link rel="stylesheet" href="https://www.lukegriffith.co.uk/css/override.css?t=2019-07-30%2022%3a43%3a00.975720922%20%2b0100%20BST%20m%3d%2b0.042582841">
+        <link rel="stylesheet" href="https://www.lukegriffith.co.uk/css/override.css?t=2020-08-29%2016%3a11%3a58.2065641%20%2b0100%20BST%20m%3d%2b0.084003901">
     
 
 
@@ -174,56 +174,30 @@
                 </div>
             </div>
             <div class="markdown">
-                
-
-<h1 id="the-problems">The Problems.</h1>
-
+                <h1 id="the-problems">The Problems.</h1>
 <p>So, my home rig is a custom build desktop PC running windows 10 but before i discovered PowerShell i was trying to learn Python and UNIX systems so i bought a mac and started learning BASH. When i got into really into PowerShell development I made the (terrible) decision to install win10 using bootcamp so I could shell all the time. I brought the reliability of Windows with the price tag of a Mac.</p>
-
 <p>So Bootcamp is a bad idea, the operating system has terrible hardware access and things like battery consumption during sleep made the laptop pretty useless and not very portable. So now we&rsquo;re on OSx El Capitan. My first problem&hellip; How the hell do i develop PowerShell on this bad boy? Ok ok&hellip; I&rsquo;ve got VS Code it has native PowerShell syntax highlighting, but thats not really *nix enough for me, VIM has an extension for PowerShell syntax highlighting - woo, ok so thats installed. Step one I have a colourful editor.</p>
-
 <p>Second problem. Although PowerShell is rumoured to be going open source and maybe one day we&rsquo;ll see a linux port but currently&hellip; I can&rsquo;t really run PowerShell and Pester on Mac, so what can I do?</p>
-
 <p><a href="https://github.com/lukemgriffith/TestLauncher">Github Project Link</a></p>
-
 <h1 id="the-solution">The Solution</h1>
-
 <p>So, first off I needed a hypervisor to run windows on and the only one I know personally thats cross platforms is Oracles VirtualBox - the command line interface is a bit clunky but VBoxManage appears to work OK, i can start VM&rsquo;s i can query states - for what I need this should do.</p>
-
 <p>The operating system, so far I&rsquo;ve not really played with server 2016, so I grabbed the iso from MSDN and installed it unfortunately I haven&rsquo;t automated the setup of the VM but potentially this could come later. After installing the Operating System I needed to setup a shared machine folder so I can have a share between my Mac and the windows server, using the shared folders in virtual box I was able to setup my TestingFramework share.</p>
-
 <p>Next I configured winlogon to automatically login an Administrative user setting the default username, default password and changing the shell to execute PowerShell.exe natively on boot, the script i used to alter these settings can be found here <a href="https://github.com/lukemgriffith/TestLauncher/blob/master/posh/TestUser.ps1">link</a>.</p>
-
 <p>So now when the VM starts it immediately logs in and starts PowerShell. Now I need to initiate my testing framework to execute what I need and extract the results. PowerShell natively loads $profile when it starts so I can leverage this to start my workflow.</p>
-
 <h2 id="powershell-scripts">Powershell Scripts</h2>
-
 <p>The below scripts control the automation for when the Windows Server starts, it controls what executes, in this case Pester tests outputs the results to a shared folder then shuts the server down capturing a transcript of the whole process. See below for details.</p>
-
-<h1 id="profile-ps1-https-github-com-lukemgriffith-testlauncher-blob-master-posh-profile-ps1"><a href="https://github.com/lukemgriffith/TestLauncher/blob/master/posh/profile.ps1">Profile.ps1</a></h1>
-
+<h1 id="profileps1httpsgithubcomlukemgriffithtestlauncherblobmasterposhprofileps1"><a href="https://github.com/lukemgriffith/TestLauncher/blob/master/posh/profile.ps1">Profile.ps1</a></h1>
 <p>The PowerShell profile loads from the users WindowsPowerShell folder located in the users documents folder and can be found via the variable $PROFILE, as the profile I will be developing will be located in the TestingFramework shared folder, I first need to deploy a basic copy that checks for updates from the share. For this i use a function called CheckProfileUpdate this obtains a file hash of both the TestingFolder profile and the local profile and if they differ the local will be over written and the machine restarted.</p>
-
 <p>Following this i initiate a transcript thats logged out, and then import dependant modules pester and psake from the modules folder in TestingFramework. After that step i initiate the launch.ps1 script located in TestingFramework.</p>
-
-<h1 id="launch-ps1-https-github-com-lukemgriffith-testlauncher-blob-master-posh-launch-ps1"><a href="https://github.com/lukemgriffith/TestLauncher/blob/master/posh/launch.ps1">Launch.ps1</a></h1>
-
+<h1 id="launchps1httpsgithubcomlukemgriffithtestlauncherblobmasterposhlaunchps1"><a href="https://github.com/lukemgriffith/TestLauncher/blob/master/posh/launch.ps1">Launch.ps1</a></h1>
 <p>This script at the moment is relatively simple - It sets the location of the shell to the Development Modules folder and starts Invoke-Pester, with the NUnitOutput exported to the TestingFramework. This script it tasked with executing your tests, it might need to import modules, it can invoke a psake task list but for now its a simple invoke-pester.</p>
-
-<h1 id="shutdown-ps1-https-github-com-lukemgriffith-testlauncher-blob-master-posh-shutdown-ps1"><a href="https://github.com/lukemgriffith/TestLauncher/blob/master/posh/shutdown.ps1">Shutdown.ps1</a></h1>
-
+<h1 id="shutdownps1httpsgithubcomlukemgriffithtestlauncherblobmasterposhshutdownps1"><a href="https://github.com/lukemgriffith/TestLauncher/blob/master/posh/shutdown.ps1">Shutdown.ps1</a></h1>
 <p>Very simple, as it states it shuts the server down after testing is completed.</p>
-
 <h2 id="bash-scripts">BASH scripts</h2>
-
-<h1 id="startvm-sh-https-github-com-lukemgriffith-testlauncher-blob-master-bash-startvm-sh"><a href="https://github.com/lukemgriffith/TestLauncher/blob/master/bash/startvm.sh">Startvm.sh</a></h1>
-
+<h1 id="startvmshhttpsgithubcomlukemgriffithtestlauncherblobmasterbashstartvmsh"><a href="https://github.com/lukemgriffith/TestLauncher/blob/master/bash/startvm.sh">Startvm.sh</a></h1>
 <p>This script probably took me the most time and took a little bit of Google Foo to completed. This is actually my first bash script and I&rsquo;m rather proud of it. Very simply it uses VBoxManage to start the windows server headlessly, as the previous parts have stated the VM from boot it will execute PowerShell and start the scripted process and end with turning the server back off after completing the testing.</p>
-
 <p>While the windows server is performing its testing process, i have the shell script enter a wait loop and it queries VBoxManage to check the state of the VM, once it sees its turned off it ends the loop and launches the less command on the recent transcript. This allows me to jump straight into the results of my tests following the execution and if any issues occurred during the run.</p>
-
 <h2 id="what-this-gives-me">What this gives me</h2>
-
 <p>So, although I’m lacking intellisense this gives me a fairly easy way to start pester tests of my modules and run integration testing on the windows VM. By running “sh startvm.sh” it launches my testing suite that I can setup in OSx and test end to end outputting the NUnit output and allowing me access to the transcript. At the moment this is the best I can come up with besides working directly inside a virtual machine (Or buying a windows laptop :P) but it was also pretty fun to put together and learning a bit of bash is never harmful.</p>
 
                 <br>

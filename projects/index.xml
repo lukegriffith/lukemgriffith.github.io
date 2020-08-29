@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Projects on Luke Griffith</title>
@@ -29,8 +29,7 @@ I implemented a simple lambda function that executed via an API gateway, and reg
       
       <guid>https://www.lukegriffith.co.uk/projects/bfs/</guid>
       <description>(Git)
-Studying for my data structures course, I implemented a BFS algorithm to find the shortest path across a HTML grid with obstacles in javascript.
- 0  1  2  3  4  5  6  7  8  9  10  11  12  13  14  15  16  17  18  19  20     </description>
+Studying for my data structures course, I implemented a BFS algorithm to find the shortest path across a HTML grid with obstacles in javascript.</description>
     </item>
     
     <item>
@@ -41,7 +40,7 @@ Studying for my data structures course, I implemented a BFS algorithm to find th
       <guid>https://www.lukegriffith.co.uk/projects/truthtable/</guid>
       <description>(Git)
 During the first year of university I came across a number of logic problems in revision and exams, to give me an easy way to check my work and improve my Python I created a dynamic truth table generator that outputs to the console the result of the python expresson entered into a REPL loop.
-enter python expression or type exit. &amp;gt; r and q | q | r | r and q | | True| True| True | | True| False| False | | False| True| False | | False| False| False |  </description>
+enter python expression or type exit. &amp;gt; r and q | q | r | r and q | | True| True| True | | True| False| False | | False| True| False | | False| False| False | </description>
     </item>
     
   </channel>

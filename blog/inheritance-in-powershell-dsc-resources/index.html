@@ -45,11 +45,11 @@ This post is to show an example of how to use the DSC framework in a better way,
 
 
     
-    <link rel="stylesheet" href="https://www.lukegriffith.co.uk/css/reset.css?t=2019-07-30%2022%3a43%3a00.975928867%20%2b0100%20BST%20m%3d%2b0.042790761">
-    <link rel="stylesheet" href="https://www.lukegriffith.co.uk/css/pygments.css?t=2019-07-30%2022%3a43%3a00.975928867%20%2b0100%20BST%20m%3d%2b0.042790761">
-    <link rel="stylesheet" href="https://www.lukegriffith.co.uk/css/main.css?t=2019-07-30%2022%3a43%3a00.975928867%20%2b0100%20BST%20m%3d%2b0.042790761">
+    <link rel="stylesheet" href="https://www.lukegriffith.co.uk/css/reset.css?t=2020-08-29%2016%3a11%3a58.2155602%20%2b0100%20BST%20m%3d%2b0.093000001">
+    <link rel="stylesheet" href="https://www.lukegriffith.co.uk/css/pygments.css?t=2020-08-29%2016%3a11%3a58.2155602%20%2b0100%20BST%20m%3d%2b0.093000001">
+    <link rel="stylesheet" href="https://www.lukegriffith.co.uk/css/main.css?t=2020-08-29%2016%3a11%3a58.2155602%20%2b0100%20BST%20m%3d%2b0.093000001">
     
-        <link rel="stylesheet" href="https://www.lukegriffith.co.uk/css/override.css?t=2019-07-30%2022%3a43%3a00.975928867%20%2b0100%20BST%20m%3d%2b0.042790761">
+        <link rel="stylesheet" href="https://www.lukegriffith.co.uk/css/override.css?t=2020-08-29%2016%3a11%3a58.2155602%20%2b0100%20BST%20m%3d%2b0.093000001">
     
 
 
@@ -176,24 +176,14 @@ This post is to show an example of how to use the DSC framework in a better way,
                 </div>
             </div>
             <div class="markdown">
-                
-
-<h1 id="intro">Intro</h1>
-
+                <h1 id="intro">Intro</h1>
 <p>Last week i made a blog post about the DSC framework and its limitations, I can now withdraw that statement. for me it was a learning experience and taught me to always test on multiple versions and operating systems before you come to a theory.</p>
-
 <p>This post is to show an example of how to use the DSC framework in a better way, to hopefully reduce code smells and reduce repetitive code use, keeping close to agile principles. In the WMF 4 way of writing resources, many times i came across functions that I was using time and time again in different modules that had DSC resources.</p>
-
 <p>Eventually I settled for a helper module that my resources depended on but due to the limitations of the WMF4 LCM and pull server - having a requirement of a module that was not already located on the box caused issues for the download manager as it could not validate the modules. After a number of hacks and effectively bending Powershell and DSC out of shape, I managed to get my helper module and use it as a central store for useful functions to be used across a number of DSC resources.</p>
-
 <p>Now on WMF 5, utilizing class based resources and inheritance I believe there is a better way to achieve this.</p>
-
 <h1 id="dsc-inheritance">DSC Inheritance</h1>
-
 <p><a href="https://github.com/lukemgriffith/DSCInheritance">GITHUB PROJECT LINK</a></p>
-
 <p>See the above link to the GitHub project, I&rsquo;ve used this as an example of how inheritance can be achieved in DSC, in this project you have the two Powershell modules</p>
-
 <pre><code>-- Modules 
     |-- Base
         |-- Base.psm1
@@ -202,104 +192,82 @@ This post is to show an example of how to use the DSC framework in a better way,
         |-- InheritedResource.psm1
         |-- InheritedResource.psd1
 </code></pre>
-
 <p>Having these modules located in the module path, will export a single DSC resource, InheritedResource and it has the following properties.</p>
+<div class="highlight"><pre class="chroma"><code class="language-PowerShell" data-lang="PowerShell">
+<span class="nb">PS </span><span class="n">wrk</span><span class="err">:</span><span class="p">\&gt;</span> <span class="nb">Get-DscResource</span> <span class="n">-Name</span> <span class="n">InheritedResource</span> <span class="p">|</span> <span class="p">%</span> <span class="n">Properties</span>
 
-<pre><code class="language-PowerShell">
-PS wrk:\&gt; Get-DscResource -Name InheritedResource | % Properties
-
-Name                 PropertyType   IsMandatory Values                     
-----                 ------------   ----------- ------                     
-Enforce              [string]              True {Always, Controlled, Never}
-Ensure               [string]              True {Absent, Present}          
-SettingName          [string]              True {}                         
-DependsOn            [string[]]           False {}                         
-PsDscRunAsCredential [PSCredential]       False {}                
+<span class="n">Name</span>                 <span class="n">PropertyType</span>   <span class="n">IsMandatory</span> <span class="n">Values</span>                     
+<span class="p">----</span>                 <span class="p">------------</span>   <span class="p">-----------</span> <span class="p">------</span>                     
+<span class="n">Enforce</span>              <span class="no">[string]</span>              <span class="n">True</span> <span class="p">{</span><span class="n">Always</span><span class="p">,</span> <span class="n">Controlled</span><span class="p">,</span> <span class="n">Never</span><span class="p">}</span>
+<span class="n">Ensure</span>               <span class="no">[string]</span>              <span class="n">True</span> <span class="p">{</span><span class="n">Absent</span><span class="p">,</span> <span class="n">Present</span><span class="p">}</span>          
+<span class="n">SettingName</span>          <span class="no">[string]</span>              <span class="n">True</span> <span class="p">{}</span>                         
+<span class="n">DependsOn</span>            <span class="no">[string[]]</span>           <span class="n">False</span> <span class="p">{}</span>                         
+<span class="n">PsDscRunAsCredential</span> <span class="no">[PSCredential]</span>       <span class="n">False</span> <span class="p">{}</span>                
  
-</code></pre>
-
-<p>If you look at the class for InheritedResource, not a lot is going on compared to what you might expect a standard DSC resource to have. A single property $SettingName is declared and made the Key of the resource, yet without a valid Get/Set/Test the resource is still valid and you can compile a mof, Furthermore the properties above Enforce and Ensure are no where to be seen.</p>
-
-<pre><code class="language-PowerShell">using Module Base
+</code></pre></div><p>If you look at the class for InheritedResource, not a lot is going on compared to what you might expect a standard DSC resource to have. A single property $SettingName is declared and made the Key of the resource, yet without a valid Get/Set/Test the resource is still valid and you can compile a mof, Furthermore the properties above Enforce and Ensure are no where to be seen.</p>
+<div class="highlight"><pre class="chroma"><code class="language-PowerShell" data-lang="PowerShell"><span class="n">using</span> <span class="n">Module</span> <span class="n">Base</span>
 
 
-[DscResource()]
-class InheritedResource : Base
-{
+<span class="p">[</span><span class="n">DscResource</span><span class="p">()]</span>
+<span class="n">class</span> <span class="n">InheritedResource</span> <span class="err">:</span> <span class="n">Base</span>
+<span class="p">{</span>
 
-    [DSCProperty(Key)]
-    [String]$SettingName 
+    <span class="p">[</span><span class="n">DSCProperty</span><span class="p">(</span><span class="n">Key</span><span class="p">)]</span>
+    <span class="no">[String]</span><span class="nv">$SettingName</span> 
 
-}
+<span class="p">}</span>
 
-</code></pre>
-
-<p>How this is achieved is by inheriting form the base resource (See <strong>InheritedResource : Base</strong>), this ensures that InheritedResource has all the properties of base, unless they are overwritten by the child class. This allows me to inherit the Get, Set and Test method to effectively abstract away the inner workings of my resource, leaving only superficial settings available in the class.</p>
-
-<h1 id="abstract-the-get-set-test">Abstract the Get / Set / Test</h1>
-
+</code></pre></div><p>How this is achieved is by inheriting form the base resource (See <strong>InheritedResource : Base</strong>), this ensures that InheritedResource has all the properties of base, unless they are overwritten by the child class. This allows me to inherit the Get, Set and Test method to effectively abstract away the inner workings of my resource, leaving only superficial settings available in the class.</p>
+<h1 id="abstract-the-get--set--test">Abstract the Get / Set / Test</h1>
 <p>First question is why would you want to do this? Well really you wouldn&rsquo;t in this form, each resource really needs its own implementation of the Get, Set and Test because it needs to implement its own logic to configure what your resource is developed for. Where could this be helpful? well abstracting the implementation of the methods allows you more control over what happens inside the resource - Say for example base looked like this.</p>
+<div class="highlight"><pre class="chroma"><code class="language-PowerShell" data-lang="PowerShell"><span class="n">using</span> <span class="n">Module</span> <span class="n">Base</span>
 
-<pre><code class="language-PowerShell">using Module Base
 
+<span class="p">[</span><span class="n">DscResource</span><span class="p">()]</span>
+<span class="n">class</span> <span class="n">Base</span>
+<span class="p">{</span>
 
-[DscResource()]
-class Base
-{
+    <span class="no">[Bool]</span><span class="nv">$Enforce</span>
 
-    [Bool]$Enforce
+    <span class="no">[Void]</span><span class="n">Set</span><span class="p">()</span> <span class="p">{</span>
 
-    [Void]Set() {
+        <span class="nb">Start-Logger</span>
 
-        Start-Logger
+        <span class="nv">$ShouldRun</span> <span class="p">=</span> <span class="nb">Get-EnforcementConfig</span> <span class="nv">$Enforce</span>
 
-        $ShouldRun = Get-EnforcementConfig $Enforce
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$ShouldRun</span><span class="p">)</span> <span class="p">{</span>
 
-        if ($ShouldRun) {
+            <span class="nv">$this</span><span class="p">.</span><span class="n">xSet</span><span class="p">()</span>
+        <span class="p">}</span> 
 
-            $this.xSet()
-        } 
+    <span class="p">}</span>
 
-    }
+    <span class="no">[Void]</span><span class="n">xSet</span><span class="p">()</span> <span class="p">{}</span> 
 
-    [Void]xSet() {} 
+<span class="p">}</span>
 
-}
-
-</code></pre>
-
-<p>With this implementation of the base resource, I would be able to override the xSet method on the inherited class and any Set that was triggered by the DSC framework would always go through this method before executing the inherited resource set.</p>
-
+</code></pre></div><p>With this implementation of the base resource, I would be able to override the xSet method on the inherited class and any Set that was triggered by the DSC framework would always go through this method before executing the inherited resource set.</p>
 <p>The benefits this gives allows you to have a single point to trap logs, check if a set should run and other business logic that your configuration workflows might need, in this case the Inherited Resource might look something like this.</p>
+<div class="highlight"><pre class="chroma"><code class="language-PowerShell" data-lang="PowerShell"><span class="n">class</span> <span class="n">InheritedResource</span> <span class="err">:</span> <span class="n">Base</span>
+<span class="p">{</span>
 
-<pre><code class="language-PowerShell">class InheritedResource : Base
-{
+    <span class="p">[</span><span class="n">DSCProperty</span><span class="p">(</span><span class="n">Key</span><span class="p">)]</span>
+    <span class="no">[String]</span><span class="nv">$SettingName</span> 
 
-    [DSCProperty(Key)]
-    [String]$SettingName 
+    <span class="no">[Void]</span><span class="n">xSet</span><span class="p">()</span> <span class="p">{</span> 
 
-    [Void]xSet() { 
+        <span class="nb">Set-SettingName</span> <span class="nv">$this</span><span class="p">.</span><span class="n">SettingName</span>
 
-        Set-SettingName $this.SettingName
+    <span class="p">}</span>
 
-    }
+<span class="p">}</span>
 
-}
-
-</code></pre>
-
-<p>So the above inheritedResource Set method that DSC executes would first hit the Base Set method, execute the central logic defined in this resource, then pass it through to the overridden xSet method and execute the individual resource logic.</p>
-
+</code></pre></div><p>So the above inheritedResource Set method that DSC executes would first hit the Base Set method, execute the central logic defined in this resource, then pass it through to the overridden xSet method and execute the individual resource logic.</p>
 <p>This method alone, can cut down a lot of repetitive code if you need to engage a logger, or send notifications to a monitoring tool that a configuration has started converging this is where you would want to do it and it would stop you from littering your individual resources with the exact same code. This approach makes your implementation neater, reduces code re-usage but also allows you to have a central place to change the workflow if required.</p>
-
 <h1 id="general-methods">General Methods</h1>
-
 <p>The second benefit to this, is the ability to have shared methods defined on the base class that can be used across all resources. Take for example a method called $this.WriteLog().</p>
-
 <p>Potentially WriteLog() might send a line to a log file on disk, or send an SNMP trap to an external monitor - the implementation of this code when defined on the base resource is only made once and can be used across all resources that utilize the Base class, and similar to the shared Set method, you have a central place to change this - in case a new monitoring system has been brought into production it reduces the need to change code to a single point in the base class.</p>
-
 <p>The actual implementation of the base class for this project can be found <a href="https://github.com/lukemgriffith/DSCInheritance/blob/master/Modules/Base/Base.psm1">here</a> and you can see I&rsquo;ve already defined a number of default methods. Ideally I will look to expand this to include a number of useful methods that can be used across the board for all resources so things like Logging and checking restart times can be moved to this.</p>
-
 <p>Classes in PowerShell will be the start of a lot of great things, and this for me is one of the huge benefits on top of class based resources alone.</p>
 
                 <br>

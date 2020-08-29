@@ -45,11 +45,11 @@ I&rsquo;ve replicated the problem in this terraform module. At line 79 in main.t
 
 
     
-    <link rel="stylesheet" href="https://www.lukegriffith.co.uk/css/reset.css?t=2019-07-30%2022%3a43%3a00.970157487%20%2b0100%20BST%20m%3d%2b0.037019387">
-    <link rel="stylesheet" href="https://www.lukegriffith.co.uk/css/pygments.css?t=2019-07-30%2022%3a43%3a00.970157487%20%2b0100%20BST%20m%3d%2b0.037019387">
-    <link rel="stylesheet" href="https://www.lukegriffith.co.uk/css/main.css?t=2019-07-30%2022%3a43%3a00.970157487%20%2b0100%20BST%20m%3d%2b0.037019387">
+    <link rel="stylesheet" href="https://www.lukegriffith.co.uk/css/reset.css?t=2020-08-29%2016%3a11%3a58.2085606%20%2b0100%20BST%20m%3d%2b0.086000401">
+    <link rel="stylesheet" href="https://www.lukegriffith.co.uk/css/pygments.css?t=2020-08-29%2016%3a11%3a58.2085606%20%2b0100%20BST%20m%3d%2b0.086000401">
+    <link rel="stylesheet" href="https://www.lukegriffith.co.uk/css/main.css?t=2020-08-29%2016%3a11%3a58.2085606%20%2b0100%20BST%20m%3d%2b0.086000401">
     
-        <link rel="stylesheet" href="https://www.lukegriffith.co.uk/css/override.css?t=2019-07-30%2022%3a43%3a00.970157487%20%2b0100%20BST%20m%3d%2b0.037019387">
+        <link rel="stylesheet" href="https://www.lukegriffith.co.uk/css/override.css?t=2020-08-29%2016%3a11%3a58.2085606%20%2b0100%20BST%20m%3d%2b0.086000401">
     
 
 
@@ -177,31 +177,20 @@ I&rsquo;ve replicated the problem in this terraform module. At line 79 in main.t
             </div>
             <div class="markdown">
                 <p>I believe I&rsquo;ve identified a bug where the VPCFlowLogs verbs in ec2, create, describe and delete do not work when a source IP condition is applied against the policy.</p>
-
 <p>I&rsquo;ve replicated the problem in <a href="https://github.com/lukemgriffith/aws-dev/tree/master/VPCFlowLogsBug">this terraform module</a>. At line 79 in main.tf is the role policy attachment that is currently attaching flow_test_policy. This is the IAM policy with the source IP condition in, if used all EC2 actions can be completed except any of the VPC flow actions and can be replicated via the console by navigating to VPC &gt; Your VPCs &gt; Select VPC main &gt; Flow Logs</p>
-
 <p>An error will appear saying you&rsquo;re not authorized to perform this operation. AWS knows who I am, but doesn&rsquo;t believe I am authorized. yet I can list VPC&rsquo;s as the policy states, under the source IP condition.</p>
-
 <p><em>The current configuration</em></p>
-
-<pre><code class="language-hcl">resource &quot;aws_iam_role_policy_attachment&quot; &quot;flow_test_attach&quot; {
-    role       = &quot;${aws_iam_role.test_role.name}&quot;
-    policy_arn = &quot;${aws_iam_policy.flow_test_policy.arn}&quot;
+<div class="highlight"><pre class="chroma"><code class="language-hcl" data-lang="hcl"><span class="k">resource</span> <span class="s2">&#34;aws_iam_role_policy_attachment&#34; &#34;flow_test_attach&#34;</span> {
+<span class="n">    role</span>       <span class="o">=</span> <span class="s2">&#34;${aws_iam_role.test_role.name}&#34;</span>
+<span class="n">    policy_arn</span> <span class="o">=</span> <span class="s2">&#34;${aws_iam_policy.flow_test_policy.arn}&#34;</span>
 }
-</code></pre>
-
-<p>When attaching flow_test_policy1 on line 79 and the source IP condition is removed, I am able to describe flow logs and also create and delete them attached to the VPC. This can easily be tested by selecting Create Flow Log under the same view and selecting vpc_flow_role under the Role, and main_vpc_log_group as the Destination log group.</p>
-
-<p>_Example of the change to attach flow_test<em>policy1</em></p>
-
-<pre><code class="language-hcl">resource &quot;aws_iam_role_policy_attachment&quot; &quot;flow_test_attach&quot; {
-    role       = &quot;${aws_iam_role.test_role.name}&quot;
-    policy_arn = &quot;${aws_iam_policy.flow_test_policy1.arn}&quot;
+</code></pre></div><p>When attaching flow_test_policy1 on line 79 and the source IP condition is removed, I am able to describe flow logs and also create and delete them attached to the VPC. This can easily be tested by selecting Create Flow Log under the same view and selecting vpc_flow_role under the Role, and main_vpc_log_group as the Destination log group.</p>
+<p><em>Example of the change to attach flow_test_policy1</em></p>
+<div class="highlight"><pre class="chroma"><code class="language-hcl" data-lang="hcl"><span class="k">resource</span> <span class="s2">&#34;aws_iam_role_policy_attachment&#34; &#34;flow_test_attach&#34;</span> {
+<span class="n">    role</span>       <span class="o">=</span> <span class="s2">&#34;${aws_iam_role.test_role.name}&#34;</span>
+<span class="n">    policy_arn</span> <span class="o">=</span> <span class="s2">&#34;${aws_iam_policy.flow_test_policy1.arn}&#34;</span>
 }
-</code></pre>
-
-<p><em>Extra Note</em></p>
-
+</code></pre></div><p><em>Extra Note</em></p>
 <p>This also occurs when a policy, without source IP filtering is applied over the top just for the VPC Flow Logs, what makes me think the creation of the flow log requires more than just ec2:CreateFlowLogs</p>
 
                 <br>

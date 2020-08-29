@@ -45,11 +45,11 @@ Property attributes These can be applied to properties of classes to give extra 
 
 
     
-    <link rel="stylesheet" href="https://www.lukegriffith.co.uk/css/reset.css?t=2019-07-30%2022%3a43%3a00.975384792%20%2b0100%20BST%20m%3d%2b0.042246707">
-    <link rel="stylesheet" href="https://www.lukegriffith.co.uk/css/pygments.css?t=2019-07-30%2022%3a43%3a00.975384792%20%2b0100%20BST%20m%3d%2b0.042246707">
-    <link rel="stylesheet" href="https://www.lukegriffith.co.uk/css/main.css?t=2019-07-30%2022%3a43%3a00.975384792%20%2b0100%20BST%20m%3d%2b0.042246707">
+    <link rel="stylesheet" href="https://www.lukegriffith.co.uk/css/reset.css?t=2020-08-29%2016%3a11%3a58.2145608%20%2b0100%20BST%20m%3d%2b0.092000601">
+    <link rel="stylesheet" href="https://www.lukegriffith.co.uk/css/pygments.css?t=2020-08-29%2016%3a11%3a58.2145608%20%2b0100%20BST%20m%3d%2b0.092000601">
+    <link rel="stylesheet" href="https://www.lukegriffith.co.uk/css/main.css?t=2020-08-29%2016%3a11%3a58.2145608%20%2b0100%20BST%20m%3d%2b0.092000601">
     
-        <link rel="stylesheet" href="https://www.lukegriffith.co.uk/css/override.css?t=2019-07-30%2022%3a43%3a00.975384792%20%2b0100%20BST%20m%3d%2b0.042246707">
+        <link rel="stylesheet" href="https://www.lukegriffith.co.uk/css/override.css?t=2020-08-29%2016%3a11%3a58.2145608%20%2b0100%20BST%20m%3d%2b0.092000601">
     
 
 
@@ -176,150 +176,129 @@ Property attributes These can be applied to properties of classes to give extra 
                 </div>
             </div>
             <div class="markdown">
-                
-
-<h1 id="why-do-you-want-this">Why do you want this?</h1>
-
+                <h1 id="why-do-you-want-this">Why do you want this?</h1>
 <p>These decorations can be added to powershell elements to provide more information via reflection to outside frameworks, allowing for more modular and extensible module design.</p>
-
 <h1 id="property-attributes">Property attributes</h1>
-
-<p>These can be applied to properties of classes to give extra meaning to it, effectively adding meta data. This meta data can be used by PowerShell developers to utilize framework instructions when working with an application.
+<p>These can be applied to properties of classes to give extra meaning to it, effectively adding meta data. This meta data can be used by PowerShell developers to utilize framework instructions when working with an application. 
 This type of scenario might come when you&rsquo;re wanting to map class properties to API queries.</p>
-
-<pre><code class="language-PowerShell">
-&lt;#
-    .Notes
-        Created: 23/01/2017 
-        Author: Luke Griffith
-
-    .Synopsis
-        Creates a property attribute that can be mapped to class properties.
-
-    .Description
-        apiObject informs the Mapper that this property is a member 
-        of the API and should be mapped accordingly.
-
-    .Example
-        class Software {
-            [apiObject(shouldQuery=$true)]
-            [String]$Name   
-            ...
-    
-#&gt;
-class apiObject : System.Attribute {
-    [bool]$shouldQuery
-}
-</code></pre>
-
-<p>Above we&rsquo;ve defined the apiObject, inheriting from the System.Attribute class it inherits the required functionality to make this class an attribute.
+<div class="highlight"><pre class="chroma"><code class="language-PowerShell" data-lang="PowerShell">
+<span class="cm">&lt;#
+</span><span class="cm">    </span><span class="sd">.Notes</span><span class="cm">
+</span><span class="cm">        Created: 23/01/2017 
+</span><span class="cm">        Author: Luke Griffith
+</span><span class="cm">
+</span><span class="cm">    </span><span class="sd">.Synopsis</span><span class="cm">
+</span><span class="cm">        Creates a property attribute that can be mapped to class properties.
+</span><span class="cm">
+</span><span class="cm">    </span><span class="sd">.Description</span><span class="cm">
+</span><span class="cm">        apiObject informs the Mapper that this property is a member 
+</span><span class="cm">        of the API and should be mapped accordingly.
+</span><span class="cm">
+</span><span class="cm">    </span><span class="sd">.Example</span><span class="cm">
+</span><span class="cm">        class Software {
+</span><span class="cm">            [apiObject(shouldQuery=$true)]
+</span><span class="cm">            [String]$Name   
+</span><span class="cm">            ...
+</span><span class="cm">    
+</span><span class="cm">#&gt;</span>
+<span class="n">class</span> <span class="n">apiObject</span> <span class="err">:</span> <span class="n">System</span><span class="p">.</span><span class="n">Attribute</span> <span class="p">{</span>
+    <span class="no">[bool]</span><span class="nv">$shouldQuery</span>
+<span class="p">}</span>
+</code></pre></div><p>Above we&rsquo;ve defined the apiObject, inheriting from the System.Attribute class it inherits the required functionality to make this class an attribute. 
 Now I can use the class to add metadata to properties.</p>
+<div class="highlight"><pre class="chroma"><code class="language-PowerShell" data-lang="PowerShell">
+<span class="n">class</span> <span class="n">Software</span> <span class="p">{</span>
 
-<pre><code class="language-PowerShell">
-class Software {
+    <span class="p">[</span><span class="n">apiObject</span><span class="p">(</span><span class="n">shouldQuery</span><span class="p">=</span><span class="nv">$true</span><span class="p">)]</span>
+    <span class="no">[String]</span><span class="nv">$Name</span>
 
-    [apiObject(shouldQuery=$true)]
-    [String]$Name
+    <span class="n">Software</span><span class="p">(</span><span class="no">[apiMapper]</span><span class="nv">$mapper</span><span class="p">){</span>
 
-    Software([apiMapper]$mapper){
+    <span class="p">}</span>
 
-    }
+<span class="p">}</span>
 
-}
+</code></pre></div><p>Now we can create a software class, and add the attribute to any property. We can reflect on the property to obtain the named arguments.</p>
+<div class="highlight"><pre class="chroma"><code class="language-PowerShell" data-lang="PowerShell">
+<span class="no">[Software]</span><span class="p">.</span><span class="n">GetProperties</span><span class="p">().</span><span class="n">Where</span><span class="p">{</span><span class="nv">$_</span><span class="p">.</span><span class="n">Name</span> <span class="o">-eq</span> <span class="s2">&#34;Name&#34;</span><span class="p">}</span>
 
-</code></pre>
-
-<p>Now we can create a software class, and add the attribute to any property. We can reflect on the property to obtain the named arguments.</p>
-
-<pre><code class="language-PowerShell">
-[Software].GetProperties().Where{$_.Name -eq &quot;Name&quot;}
-
-</code></pre>
-
-<h1 id="function-attributes">Function attributes</h1>
-
+</code></pre></div><h1 id="function-attributes">Function attributes</h1>
 <p>These can be added to powershell functions, just like the [CmdletBinding()] class. These can be pulled back from the FunctionInfo object.</p>
+<div class="highlight"><pre class="chroma"><code class="language-PowerShell" data-lang="PowerShell">
 
-<pre><code class="language-PowerShell">
+<span class="c"># enum for class options</span>
+<span class="n">enum</span> <span class="n">httpMethods</span> <span class="p">{</span>
 
-# enum for class options
-enum httpMethods {
+    <span class="n">GET</span>
+    <span class="n">PUT</span>
+    <span class="n">POST</span>
+    <span class="n">DELETE</span>
 
-    GET
-    PUT
-    POST
-    DELETE
+<span class="p">}</span>
 
-}
+<span class="cm">&lt;#
+</span><span class="cm">    </span><span class="sd">.Notes</span><span class="cm"> 
+</span><span class="cm">    Luke Griffith
+</span><span class="cm">    23/01/17
+</span><span class="cm">
+</span><span class="cm">    </span><span class="sd">.Synopsis</span><span class="cm">
+</span><span class="cm">    Function attribute that interfaces with WebModule
+</span><span class="cm">
+</span><span class="cm">    </span><span class="sd">.Description</span><span class="cm">
+</span><span class="cm">    Can be used to add WebModule properties like route, and method.
+</span><span class="cm">
+</span><span class="cm">#&gt;</span>
+<span class="n">class</span> <span class="n">Web</span> <span class="err">:</span> <span class="n">System</span><span class="p">.</span><span class="n">Management</span><span class="p">.</span><span class="n">Automation</span><span class="p">.</span><span class="n">CmdletCommonMetadataAttribute</span> <span class="p">{</span> 
 
-&lt;#
-    .Notes 
-    Luke Griffith
-    23/01/17
+    <span class="no">[httpMethods]</span><span class="nv">$Method</span>
+    <span class="no">[string]</span><span class="nv">$Route</span>
 
-    .Synopsis
-    Function attribute that interfaces with WebModule
+    <span class="n">Web</span><span class="p">(){</span> 
 
-    .Description
-    Can be used to add WebModule properties like route, and method.
+    <span class="p">}</span>
+<span class="p">}</span>
 
-#&gt;
-class Web : System.Management.Automation.CmdletCommonMetadataAttribute { 
+<span class="cm">&lt;#
+</span><span class="cm">    </span><span class="sd">.Notes</span><span class="cm"> 
+</span><span class="cm">    Luke Griffith
+</span><span class="cm">    23/01/17
+</span><span class="cm">
+</span><span class="cm">    </span><span class="sd">.Synopsis</span><span class="cm"> 
+</span><span class="cm">    Obtains host data from the config database registry.
+</span><span class="cm">
+</span><span class="cm">    </span><span class="sd">.Description</span><span class="cm">
+</span><span class="cm">    Using the ConfigDB module, it queries the registry for the computer name provided.
+</span><span class="cm">#&gt;</span>
+<span class="k">function</span> <span class="nb">Get-HostData</span> <span class="p">{</span>
+    <span class="p">[</span><span class="n">Web</span><span class="p">(</span><span class="n">Method</span><span class="p">=</span><span class="s2">&#34;GET&#34;</span><span class="p">,</span> <span class="n">Route</span><span class="p">=</span><span class="s2">&#34;api/hosts&#34;</span><span class="p">)]</span>
+    <span class="k">param</span><span class="p">(</span>
+        <span class="no">[String]</span><span class="nv">$ComputerName</span>
+    <span class="p">)</span>
 
-    [httpMethods]$Method
-    [string]$Route
-
-    Web(){ 
-
-    }
-}
-
-&lt;#
-    .Notes 
-    Luke Griffith
-    23/01/17
-
-    .Synopsis 
-    Obtains host data from the config database registry.
-
-    .Description
-    Using the ConfigDB module, it queries the registry for the computer name provided.
-#&gt;
-function Get-HostData {
-    [Web(Method=&quot;GET&quot;, Route=&quot;api/hosts&quot;)]
-    param(
-        [String]$ComputerName
-    )
-
-    Get-ConfigDBItem $ComputerName
-}
+    <span class="nb">Get-ConfigDBItem</span> <span class="nv">$ComputerName</span>
+<span class="p">}</span>
 
 
-</code></pre>
-
-<p>In the above example, I&rsquo;ve coded out a Web function attribute and this can be added to the function much like the CmdletBinding attribute.
+</code></pre></div><p>In the above example, I&rsquo;ve coded out a Web function attribute and this can be added to the function much like the CmdletBinding attribute.
 In this case, the attributes provide a web framework data around the HTML route for this function to be called at, and what method it takes.</p>
-
 <p>To obtain this metadata, I just need to get the FunctionInfo.</p>
+<div class="highlight"><pre class="chroma"><code class="language-PowerShell" data-lang="PowerShell"><span class="nv">$function</span> <span class="p">=</span> <span class="nb">Get-Command</span> <span class="nb">Get-HostData</span>
 
-<pre><code class="language-PowerShell">$function = Get-Command Get-HostData
-
-$function.ScriptBlock.Attributes
+<span class="nv">$function</span><span class="p">.</span><span class="n">ScriptBlock</span><span class="p">.</span><span class="n">Attributes</span>
 
 
-# Method                  : GET
-# Route                   : api/hosts
-# DefaultParameterSetName : 
-# SupportsShouldProcess   : False
-# SupportsPaging          : False
-# SupportsTransactions    : False
-# ConfirmImpact           : Medium
-# HelpUri                 : 
-# RemotingCapability      : PowerShell
-# TypeId                  : Web
+<span class="c"># Method                  : GET</span>
+<span class="c"># Route                   : api/hosts</span>
+<span class="c"># DefaultParameterSetName : </span>
+<span class="c"># SupportsShouldProcess   : False</span>
+<span class="c"># SupportsPaging          : False</span>
+<span class="c"># SupportsTransactions    : False</span>
+<span class="c"># ConfirmImpact           : Medium</span>
+<span class="c"># HelpUri                 : </span>
+<span class="c"># RemotingCapability      : PowerShell</span>
+<span class="c"># TypeId                  : Web</span>
 
-</code></pre>
-
+</code></pre></div>
                 <br>
                 
                 <p class="back-to-posts"><a href="https://www.lukegriffith.co.uk/blog">Back to posts</a></p>
