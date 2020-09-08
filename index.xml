@@ -51,7 +51,8 @@ I&amp;rsquo;ve replicated the problem in this terraform module. At line 79 in ma
       
       <guid>https://www.lukegriffith.co.uk/projects/bfs/</guid>
       <description>(Git)
-Studying for my data structures course, I implemented a BFS algorithm to find the shortest path across a HTML grid with obstacles in javascript.</description>
+Studying for my data structures course, I implemented a BFS algorithm to find the shortest path across a HTML grid with obstacles in javascript.
+01234567891011121314151617181920</description>
     </item>
     
     <item>
