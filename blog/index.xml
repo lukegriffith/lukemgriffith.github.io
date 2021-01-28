@@ -6,11 +6,7 @@
     <description>Recent content in Blog on Luke Griffith</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Mon, 05 Feb 2018 00:42:20 +0000</lastBuildDate>
-    
-	<atom:link href="https://www.lukegriffith.co.uk/blog/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 05 Feb 2018 00:42:20 +0000</lastBuildDate><atom:link href="https://www.lukegriffith.co.uk/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>VPC Flow Log Woes</title>
       <link>https://www.lukegriffith.co.uk/blog/vpc-flow-log-woes/</link>
