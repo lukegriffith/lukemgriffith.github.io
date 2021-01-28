@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Luke Griffith">
+<meta name="description" content="(Git)
+Monzo is a UK based online first bank. Ynab is a budgeting application that allows you to track expenses and keep monthly pots. Unfortunately Ynab does not support auto syncing with pretty much all UK banks but offers a great REST api and Monzo supports transaction webhooks.
+I implemented a simple lambda function that executed via an API gateway, and registered the function with Monzo, automatically adding my transactions to my budgeting app.">
+
+<meta property="og:title" content="Monzo to Ynab connector" />
+<meta property="og:description" content="(Git)
+Monzo is a UK based online first bank. Ynab is a budgeting application that allows you to track expenses and keep monthly pots. Unfortunately Ynab does not support auto syncing with pretty much all UK banks but offers a great REST api and Monzo supports transaction webhooks.
+I implemented a simple lambda function that executed via an API gateway, and registered the function with Monzo, automatically adding my transactions to my budgeting app." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.lukegriffith.co.uk/projects/monzotoynab/" />
+<meta property="article:published_time" content="2018-05-10T00:55:10+00:00" />
+<meta property="article:modified_time" content="2018-05-10T00:55:10+00:00" />
+
+
+<title>
+
+
+     Monzo to Ynab connector 
+
+</title>
+<link rel="canonical" href="https://www.lukegriffith.co.uk/projects/monzotoynab/">
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="https://www.lukegriffith.co.uk/css/reset.css?t=2021-01-28%2021%3a52%3a54.004525809%20%2b0000%20UTC%20m%3d%2b0.041537083">
+    <link rel="stylesheet" href="https://www.lukegriffith.co.uk/css/pygments.css?t=2021-01-28%2021%3a52%3a54.004525809%20%2b0000%20UTC%20m%3d%2b0.041537083">
+    <link rel="stylesheet" href="https://www.lukegriffith.co.uk/css/main.css?t=2021-01-28%2021%3a52%3a54.004525809%20%2b0000%20UTC%20m%3d%2b0.041537083">
+    
+        <link rel="stylesheet" href="https://www.lukegriffith.co.uk/css/override.css?t=2021-01-28%2021%3a52%3a54.004525809%20%2b0000%20UTC%20m%3d%2b0.041537083">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://www.lukegriffith.co.uk/img/leaf.ico"
+
+>
+
+
+
+
+
+
+
+
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                <a href="https://www.lukegriffith.co.uk/"><img class="avatar" src="https://www.lukegriffith.co.uk/img/profile.jpg" srcset="https://www.lukegriffith.co.uk/img/profile.jpg 1x"></a>
+            
+            <a href="https://www.lukegriffith.co.uk/"><div class="name">Luke Griffith</div></a>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-blog"><a href="https://www.lukegriffith.co.uk/blog/"><span>blog</span></a></li>
+                    
+                        <li class="nav-about"><a href="https://www.lukegriffith.co.uk/about/"><span>About</span></a></li>
+                    
+                        <li class="nav-projects"><a href="https://www.lukegriffith.co.uk/projects/"><span>Projects</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+        
+            <a href="//github.com/lukemgriffith" target="_blank" rel="noopener"><img class="icon" src="https://www.lukegriffith.co.uk/img/github.svg" alt="github" /></a>
+        
+
+        
+
+        
+            <a href="//twitter.com/lukemgriffith" target="_blank" rel="noopener"><img class="icon" src="https://www.lukegriffith.co.uk/img/twitter.svg" alt="twitter" /></a>
+        
+
+	
+
+        
+
+        
+
+        
+            <a href="//linkedin.com/in/lukemgriffith" target="_blank" rel="noopener"><img class="icon" src="https://www.lukegriffith.co.uk/img/linkedin.svg" alt="linkedin" /></a>
+        
+
+        
+
+        
+
+        
+            <a href="//instagram.com/_lukem" target="_blank" rel="noopener"><img class="icon" src="https://www.lukegriffith.co.uk/img/instagram.svg" alt="instagram" /></a>
+        
+
+        
+
+        
+
+        
+            <a href="mailto:luke@griffith.cloud"><img class="icon" src="https://www.lukegriffith.co.uk/img/email.svg" alt="email" /></a>
+        
+
+        
+
+        
+        </div>
+    </div>
+</section>
+
+<section class="main">
+    <div class="container">
+        <div class="content">
+            <div class="page-heading">
+
+    Monzo to Ynab connector
+
+</div>
+
+            <div class="markdown">
+                <p><a href="https://github.com/lukemgriffith/MonzoToYnab">(Git)</a></p>
+<p>Monzo is a UK based online first bank. Ynab is a budgeting application that allows you to track expenses and keep monthly pots. Unfortunately Ynab does not support auto syncing with pretty much all UK banks but offers a great REST api and Monzo supports transaction webhooks.</p>
+<p>I implemented a simple lambda function that executed via an API gateway, and registered the function with Monzo, automatically adding my transactions to my budgeting app. This was my first real experience with serverless and writing a useful NodeJs project.</p>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/go.min.js"></script>
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/powershell.min.js"></script>
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/hcl.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+
+</body>
+</html>
+
