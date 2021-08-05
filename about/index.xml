@@ -2,13 +2,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>About Luke on Luke Griffith</title>
-    <link>https://www.lukegriffith.co.uk/about/</link>
+    <link>https://lukegriffith.co.uk/about/</link>
     <description>Recent content in About Luke on Luke Griffith</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Tue, 28 Jan 2020 00:58:52 +0000</lastBuildDate>
     
-	<atom:link href="https://www.lukegriffith.co.uk/about/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://lukegriffith.co.uk/about/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>

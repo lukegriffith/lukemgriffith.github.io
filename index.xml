@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Luke Griffith</title>
-    <link>https://www.lukegriffith.co.uk/</link>
+    <link>https://lukegriffith.co.uk/</link>
     <description>Recent content on Luke Griffith</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Tue, 08 Sep 2020 22:33:00 +0000</lastBuildDate>
     
-	<atom:link href="https://www.lukegriffith.co.uk/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://lukegriffith.co.uk/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>CaptainHook</title>
-      <link>https://www.lukegriffith.co.uk/projects/captainhook/</link>
+      <link>https://lukegriffith.co.uk/projects/captainhook/</link>
       <pubDate>Sat, 29 Aug 2020 00:55:10 +0000</pubDate>
       
-      <guid>https://www.lukegriffith.co.uk/projects/captainhook/</guid>
+      <guid>https://lukegriffith.co.uk/projects/captainhook/</guid>
       <description>For my final year project on my BSc computing course at Birkbeck, i designed and created an internet webhook router that can dispatch recieved events to configured targets, parsing the body data and mutating it to match the signatures of downstream API&amp;rsquo;s.
 The project was build in GoLang, and takes a lot of inspiration from software project like Kubernetes or Ansible, with a fully declarative yaml configured interface.
 Repository
@@ -25,10 +25,10 @@ Extract from project report</description>
     
     <item>
       <title>Monzo to Ynab connector</title>
-      <link>https://www.lukegriffith.co.uk/projects/monzotoynab/</link>
+      <link>https://lukegriffith.co.uk/projects/monzotoynab/</link>
       <pubDate>Thu, 10 May 2018 00:55:10 +0000</pubDate>
       
-      <guid>https://www.lukegriffith.co.uk/projects/monzotoynab/</guid>
+      <guid>https://lukegriffith.co.uk/projects/monzotoynab/</guid>
       <description>(Git)
 Monzo is a UK based online first bank. Ynab is a budgeting application that allows you to track expenses and keep monthly pots. Unfortunately Ynab does not support auto syncing with pretty much all UK banks but offers a great REST api and Monzo supports transaction webhooks.
 I implemented a simple lambda function that executed via an API gateway, and registered the function with Monzo, automatically adding my transactions to my budgeting app.</description>
@@ -36,20 +36,20 @@ I implemented a simple lambda function that executed via an API gateway, and reg
     
     <item>
       <title>VPC Flow Log Woes</title>
-      <link>https://www.lukegriffith.co.uk/blog/vpc-flow-log-woes/</link>
+      <link>https://lukegriffith.co.uk/blog/vpc-flow-log-woes/</link>
       <pubDate>Wed, 09 May 2018 23:31:57 +0100</pubDate>
       
-      <guid>https://www.lukegriffith.co.uk/blog/vpc-flow-log-woes/</guid>
+      <guid>https://lukegriffith.co.uk/blog/vpc-flow-log-woes/</guid>
       <description>I believe I&amp;rsquo;ve identified a bug where the VPCFlowLogs verbs in ec2, create, describe and delete do not work when a source IP condition is applied against the policy.
 I&amp;rsquo;ve replicated the problem in this terraform module. At line 79 in main.tf is the role policy attachment that is currently attaching flow_test_policy. This is the IAM policy with the source IP condition in, if used all EC2 actions can be completed except any of the VPC flow actions and can be replicated via the console by navigating to VPC &amp;gt; Your VPCs &amp;gt; Select VPC main &amp;gt; Flow Logs</description>
     </item>
     
     <item>
       <title>Breadth-first search algorithm</title>
-      <link>https://www.lukegriffith.co.uk/projects/bfs/</link>
+      <link>https://lukegriffith.co.uk/projects/bfs/</link>
       <pubDate>Wed, 10 May 2017 00:55:10 +0000</pubDate>
       
-      <guid>https://www.lukegriffith.co.uk/projects/bfs/</guid>
+      <guid>https://lukegriffith.co.uk/projects/bfs/</guid>
       <description>(Git)
 Studying for my data structures course, I implemented a BFS algorithm to find the shortest path across a HTML grid with obstacles in javascript.
  0  1  2  3  4  5  6  7  8  9  10  11  12  13  14  15  16  17  18  19  20     </description>
@@ -57,20 +57,20 @@ Studying for my data structures course, I implemented a BFS algorithm to find th
     
     <item>
       <title>Custom function and property attributes</title>
-      <link>https://www.lukegriffith.co.uk/blog/custom-function-and-property-attributes/</link>
+      <link>https://lukegriffith.co.uk/blog/custom-function-and-property-attributes/</link>
       <pubDate>Mon, 23 Jan 2017 22:00:21 +0000</pubDate>
       
-      <guid>https://www.lukegriffith.co.uk/blog/custom-function-and-property-attributes/</guid>
+      <guid>https://lukegriffith.co.uk/blog/custom-function-and-property-attributes/</guid>
       <description>Why do you want this? These decorations can be added to powershell elements to provide more information via reflection to outside frameworks, allowing for more modular and extensible module design.
 Property attributes These can be applied to properties of classes to give extra meaning to it, effectively adding meta data. This meta data can be used by PowerShell developers to utilize framework instructions when working with an application. This type of scenario might come when you&amp;rsquo;re wanting to map class properties to API queries.</description>
     </item>
     
     <item>
       <title>Show Truth Table</title>
-      <link>https://www.lukegriffith.co.uk/projects/truthtable/</link>
+      <link>https://lukegriffith.co.uk/projects/truthtable/</link>
       <pubDate>Sat, 10 Dec 2016 00:55:10 +0000</pubDate>
       
-      <guid>https://www.lukegriffith.co.uk/projects/truthtable/</guid>
+      <guid>https://lukegriffith.co.uk/projects/truthtable/</guid>
       <description>(Git)
 During the first year of university I came across a number of logic problems in revision and exams, to give me an easy way to check my work and improve my Python I created a dynamic truth table generator that outputs to the console the result of the python expresson entered into a REPL loop.
 enter python expression or type exit. &amp;gt; r and q | q | r | r and q | | True| True| True | | True| False| False | | False| True| False | | False| False| False | </description>
@@ -78,19 +78,19 @@ enter python expression or type exit. &amp;gt; r and q | q | r | r and q | | Tru
     
     <item>
       <title>Cross Platform PowerShell Testing</title>
-      <link>https://www.lukegriffith.co.uk/blog/cross-platform-powershell-testing/</link>
+      <link>https://lukegriffith.co.uk/blog/cross-platform-powershell-testing/</link>
       <pubDate>Sun, 31 Jul 2016 17:00:21 +0100</pubDate>
       
-      <guid>https://www.lukegriffith.co.uk/blog/cross-platform-powershell-testing/</guid>
+      <guid>https://lukegriffith.co.uk/blog/cross-platform-powershell-testing/</guid>
       <description>The Problems. So, my home rig is a custom build desktop PC running windows 10 but before i discovered PowerShell i was trying to learn Python and UNIX systems so i bought a mac and started learning BASH. When i got into really into PowerShell development I made the (terrible) decision to install win10 using bootcamp so I could shell all the time. I brought the reliability of Windows with the price tag of a Mac.</description>
     </item>
     
     <item>
       <title>Inheritance in PowerShell DSC resources</title>
-      <link>https://www.lukegriffith.co.uk/blog/inheritance-in-powershell-dsc-resources/</link>
+      <link>https://lukegriffith.co.uk/blog/inheritance-in-powershell-dsc-resources/</link>
       <pubDate>Thu, 16 Jun 2016 20:00:21 +0100</pubDate>
       
-      <guid>https://www.lukegriffith.co.uk/blog/inheritance-in-powershell-dsc-resources/</guid>
+      <guid>https://lukegriffith.co.uk/blog/inheritance-in-powershell-dsc-resources/</guid>
       <description>Intro Last week i made a blog post about the DSC framework and its limitations, I can now withdraw that statement. for me it was a learning experience and taught me to always test on multiple versions and operating systems before you come to a theory.
 This post is to show an example of how to use the DSC framework in a better way, to hopefully reduce code smells and reduce repetitive code use, keeping close to agile principles.</description>
     </item>
