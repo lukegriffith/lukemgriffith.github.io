@@ -6,6 +6,10 @@
     <description>Recent content in About Luke on Luke Griffith</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Tue, 28 Jan 2020 00:58:52 +0000</lastBuildDate><atom:link href="https://www.lukegriffith.co.uk/about/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 28 Jan 2020 00:58:52 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.lukegriffith.co.uk/about/index.xml" rel="self" type="application/rss+xml" />
+    
+    
   </channel>
 </rss>
