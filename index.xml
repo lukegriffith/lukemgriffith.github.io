@@ -24,6 +24,16 @@ Extract from project report</description>
     </item>
     
     <item>
+      <title>About Luke</title>
+      <link>https://lukegriffith.co.uk/about/</link>
+      <pubDate>Tue, 28 Jan 2020 00:58:52 +0000</pubDate>
+      
+      <guid>https://lukegriffith.co.uk/about/</guid>
+      <description>DevOps, Kubernetes &amp;amp; AWS Luke is a passionate and highly focused individual, dedicated to learning about technology and its implementation. With over 10 years of industry experience working with business critical infrastructure, and applications his primary skills set is infrastructure automation, configuration and testing with experience in software engineering. He has experience leading small DevOps/SRE teams using agile methods.
+He has worked indeph in both Linux and Windows environments, with recent focus being on Kubernetes and containerisation running on Linux.</description>
+    </item>
+    
+    <item>
       <title>Monzo to Ynab connector</title>
       <link>https://lukegriffith.co.uk/projects/monzotoynab/</link>
       <pubDate>Thu, 10 May 2018 00:55:10 +0000</pubDate>
