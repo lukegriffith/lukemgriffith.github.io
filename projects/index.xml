@@ -12,6 +12,17 @@
     
     
     <item>
+      <title>Opensource: Gitlab Provider Development</title>
+      <link>https://lukegriffith.co.uk/projects/gitlabproviders/</link>
+      <pubDate>Tue, 29 Sep 2020 00:55:10 +0000</pubDate>
+      
+      <guid>https://lukegriffith.co.uk/projects/gitlabproviders/</guid>
+      <description>I worked on the Gitlab provider to add the remote mirrors api, as a terraform resource. This creates a mirror object that syncs to a remote git repository.
+To achieve this I had to update the upstream go library, using the gitlab API documentation. Once merged and released created I added changes to the Terraform provider.
+ xanzy/go-gitlab (Pull Request) gitlabhq/terraform-provider-gitlab (Pull Request)  </description>
+    </item>
+    
+    <item>
       <title>CaptainHook</title>
       <link>https://lukegriffith.co.uk/projects/captainhook/</link>
       <pubDate>Sat, 29 Aug 2020 00:55:10 +0000</pubDate>
@@ -32,6 +43,16 @@ Extract from project report</description>
       <description>(Git)
 Monzo is a UK based online first bank. Ynab is a budgeting application that allows you to track expenses and keep monthly pots. Unfortunately Ynab does not support auto syncing with pretty much all UK banks but offers a great REST api and Monzo supports transaction webhooks.
 I implemented a simple lambda function that executed via an API gateway, and registered the function with Monzo, automatically adding my transactions to my budgeting app.</description>
+    </item>
+    
+    <item>
+      <title>Opensource: Chocolatey DSC Feature</title>
+      <link>https://lukegriffith.co.uk/projects/chocolateydsc/</link>
+      <pubDate>Sat, 15 Jul 2017 00:55:10 +0000</pubDate>
+      
+      <guid>https://lukegriffith.co.uk/projects/chocolateydsc/</guid>
+      <description>Development of a DSC resource to set Chocolatey client features via configuration management.
+ cChoco/cChocoFeature (Pull Request)  </description>
     </item>
     
     <item>

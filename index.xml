@@ -12,6 +12,17 @@
     
     
     <item>
+      <title>Opensource: Gitlab Provider Development</title>
+      <link>https://lukegriffith.co.uk/projects/gitlabproviders/</link>
+      <pubDate>Tue, 29 Sep 2020 00:55:10 +0000</pubDate>
+      
+      <guid>https://lukegriffith.co.uk/projects/gitlabproviders/</guid>
+      <description>I worked on the Gitlab provider to add the remote mirrors api, as a terraform resource. This creates a mirror object that syncs to a remote git repository.
+To achieve this I had to update the upstream go library, using the gitlab API documentation. Once merged and released created I added changes to the Terraform provider.
+ xanzy/go-gitlab (Pull Request) gitlabhq/terraform-provider-gitlab (Pull Request)  </description>
+    </item>
+    
+    <item>
       <title>CaptainHook</title>
       <link>https://lukegriffith.co.uk/projects/captainhook/</link>
       <pubDate>Sat, 29 Aug 2020 00:55:10 +0000</pubDate>
@@ -52,6 +63,16 @@ I implemented a simple lambda function that executed via an API gateway, and reg
       <guid>https://lukegriffith.co.uk/blog/vpc-flow-log-woes/</guid>
       <description>I believe I&amp;rsquo;ve identified a bug where the VPCFlowLogs verbs in ec2, create, describe and delete do not work when a source IP condition is applied against the policy.
 I&amp;rsquo;ve replicated the problem in this terraform module. At line 79 in main.tf is the role policy attachment that is currently attaching flow_test_policy. This is the IAM policy with the source IP condition in, if used all EC2 actions can be completed except any of the VPC flow actions and can be replicated via the console by navigating to VPC &amp;gt; Your VPCs &amp;gt; Select VPC main &amp;gt; Flow Logs</description>
+    </item>
+    
+    <item>
+      <title>Opensource: Chocolatey DSC Feature</title>
+      <link>https://lukegriffith.co.uk/projects/chocolateydsc/</link>
+      <pubDate>Sat, 15 Jul 2017 00:55:10 +0000</pubDate>
+      
+      <guid>https://lukegriffith.co.uk/projects/chocolateydsc/</guid>
+      <description>Development of a DSC resource to set Chocolatey client features via configuration management.
+ cChoco/cChocoFeature (Pull Request)  </description>
     </item>
     
     <item>
