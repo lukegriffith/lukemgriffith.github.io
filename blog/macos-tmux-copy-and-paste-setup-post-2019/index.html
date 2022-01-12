@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Luke Griffith">
+<meta name="description" content="Hello blog, it&rsquo;s been a minute - 4 years. You&rsquo;ve been good? &hellip; I mean I know you have, I&rsquo;ve replatformed you 3 times and added no content. Me? Oh, nothing much… I&rsquo;ve only got tmux copy and paste to work on MacOS!
+Why is this big, well the last 5 years I&rsquo;ve come to work on a new macbook exactly twice - I find this blog post explaining how to setup copy and paste in a macos world by somebody named Chris Toomey - Indeed the future would be better, Chris if this wasn&rsquo;t the first hit on google and wasn’t written in 2013.">
+
+<meta property="og:title" content="Macos Tmux copy and paste setup, post 2019" />
+<meta property="og:description" content="Hello blog, it&rsquo;s been a minute - 4 years. You&rsquo;ve been good? &hellip; I mean I know you have, I&rsquo;ve replatformed you 3 times and added no content. Me? Oh, nothing much… I&rsquo;ve only got tmux copy and paste to work on MacOS!
+Why is this big, well the last 5 years I&rsquo;ve come to work on a new macbook exactly twice - I find this blog post explaining how to setup copy and paste in a macos world by somebody named Chris Toomey - Indeed the future would be better, Chris if this wasn&rsquo;t the first hit on google and wasn’t written in 2013." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://lukegriffith.co.uk/blog/macos-tmux-copy-and-paste-setup-post-2019/" />
+<meta property="article:published_time" content="2022-01-12T19:00:00+00:00" />
+<meta property="article:modified_time" content="2022-01-12T19:00:00+00:00" />
+
+
+<title>
+
+
+     Macos Tmux copy and paste setup, post 2019 
+
+</title>
+<link rel="canonical" href="https://lukegriffith.co.uk/blog/macos-tmux-copy-and-paste-setup-post-2019/">
+
+
+
+
+
+
+
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+  
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="https://lukegriffith.co.uk/css/reset.css?t=2022-01-12%2019%3a40%3a56.495467402%20%2b0000%20UTC%20m%3d%2b0.057429251">
+    <link rel="stylesheet" href="https://lukegriffith.co.uk/css/pygments.css?t=2022-01-12%2019%3a40%3a56.495467402%20%2b0000%20UTC%20m%3d%2b0.057429251">
+    <link rel="stylesheet" href="https://lukegriffith.co.uk/css/main.css?t=2022-01-12%2019%3a40%3a56.495467402%20%2b0000%20UTC%20m%3d%2b0.057429251">
+    
+        <link rel="stylesheet" href="https://lukegriffith.co.uk/css/override.css?t=2022-01-12%2019%3a40%3a56.495467402%20%2b0000%20UTC%20m%3d%2b0.057429251">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://lukegriffith.co.uk/img/leaf.ico"
+
+>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                <a href="https://lukegriffith.co.uk/"><img class="avatar" src="https://lukegriffith.co.uk/img/profile.jpg" srcset="https://lukegriffith.co.uk/img/profile.jpg 1x"></a>
+            
+            <a href="https://lukegriffith.co.uk/"><div class="name">Luke Griffith</div></a>
+            
+              <h3 class="self-intro">Site Reliability Engineer</h3>
+            
+            <nav>
+                <ul>
+                    
+                        
+                        <li class="nav-about"><a href="https://lukegriffith.co.uk/about/"><span>About</span></a></li>
+                    
+                        
+                        <li class="nav-projects"><a href="https://lukegriffith.co.uk/projects/"><span>Projects</span></a></li>
+                    
+                        
+                        <li class="nav-blog"><a href="https://lukegriffith.co.uk/blog/"><span>blog</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+        
+            <a href="//github.com/lukegriffith" target="_blank" rel="noopener"><img class="icon" src="https://lukegriffith.co.uk/img/github.svg" alt="github" /></a>
+        
+
+        
+
+        
+            <a href="//twitter.com/lukemgriffith" target="_blank" rel="noopener"><img class="icon" src="https://lukegriffith.co.uk/img/twitter.svg" alt="twitter" /></a>
+        
+
+	
+
+        
+
+        
+
+        
+            <a href="//linkedin.com/in/lukemgriffith" target="_blank" rel="noopener"><img class="icon" src="https://lukegriffith.co.uk/img/linkedin.svg" alt="linkedin" /></a>
+        
+
+        
+
+        
+
+        
+            <a href="//instagram.com/_lukem" target="_blank" rel="noopener"><img class="icon" src="https://lukegriffith.co.uk/img/instagram.svg" alt="instagram" /></a>
+        
+
+        
+
+        
+
+        
+            <a href="mailto:luke@griffith.cloud"><img class="icon" src="https://lukegriffith.co.uk/img/email.svg" alt="email" /></a>
+        
+
+        
+        
+        
+
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Macos Tmux copy and paste setup, post 2019
+
+</div>
+
+                    <div class="initials"><a href="https://lukegriffith.co.uk/">ad</a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Wed Jan 12 2022 19:00:00 UTC'>Jan 12, 2022</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>2 minutes read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                <p>Hello blog, it&rsquo;s been a minute - 4 years. You&rsquo;ve been good? &hellip; I mean I know you have, I&rsquo;ve replatformed you 3 times and added no content. Me? Oh, nothing much… I&rsquo;ve only got tmux copy and paste to work on MacOS!</p>
+<p>Why is this big, well the last 5 years I&rsquo;ve come to work on a new macbook exactly twice - I find <a href="https://thoughtbot.com/blog/tmux-copy-paste-on-os-x-a-better-future">this blog post</a> explaining how to setup copy and paste in a macos world by somebody named Chris Toomey - Indeed the future would be better, Chris if this wasn&rsquo;t the first hit on google and wasn’t written in 2013. The future has moved on (oh boy it moved on 😷) and tmux has moved on.</p>
+<p>If you brew install <code>tmux</code> and the <code>reattach-to-user-namespace</code> package, then you add the config documented on the linked blog in your .tmux.conf it wont load. If you manually source it <code>Ctrl + B, :source-file ~/.tmux.conf</code> it&rsquo;ll spit out something along the lines of</p>
+<pre><code>/home/user/.tmux.conf:12: usage: bind-key [-cnr] [-T key-table] key command [arguments]
+</code></pre><p>This is on a tmux version greater than 3.0.</p>
+<p>At this point previously, I looked for another article and was unable to find the  answer - reasoned with myself is tmux really worth it and moved on with my life. I installed iterm, learnt some hotkeys and got on with my multiplexless life.</p>
+<p>But this time was different, this time - I had time. My age old enemy, well now it has become my friend.</p>
+<p>It doesn&rsquo;t work because the command syntax changed, I&rsquo;m unsure what version - if I cared more I would check, but alas.</p>
+<pre><code>setw -g mode-keys vi
+bind-key -T copy-mode-vi v send-keys -X begin-selection
+unbind -T copy-mode-vi Enter
+bind-key -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel 'reattach-to-user-namespace pbcopy'
+bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel 'reattach-to-user-namespace pbcopy'
+</code></pre><p>The above added to my tmux config, after installing <code>reattach-to-user-namespace</code> actually worked, I can move into selection mode - smash Y and copy into the system clipboard. All it took was some patience and reading man pages. If I had just taken the literal 5 minutes of using my brain before to help myself out!</p>
+<p>If there&rsquo;s some solace, hopfully this supassess Chris&rsquo; blog post on Google and saves someone some time. But that would involve me actually having a sensible adsense setup.</p>
+<p>In another four years!</p>
+<p>Sayonara</p>
+
+                <br>
+                
+                <p class="back-to-posts"><a href="https://lukegriffith.co.uk/blog">Back to posts</a></p>
+            </div>
+            <br>
+            <div class="disqus">
+                
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+
+
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/go.min.js"></script>
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/powershell.min.js"></script>
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/hcl.min.js"></script>
+    
+  
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+
+</body>
+</html>
+

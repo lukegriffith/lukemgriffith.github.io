@@ -6,10 +6,20 @@
     <description>Recent content in Blog on Luke Griffith</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Wed, 09 May 2018 23:31:57 +0100</lastBuildDate>
+    <lastBuildDate>Wed, 12 Jan 2022 19:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://lukegriffith.co.uk/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Macos Tmux copy and paste setup, post 2019</title>
+      <link>https://lukegriffith.co.uk/blog/macos-tmux-copy-and-paste-setup-post-2019/</link>
+      <pubDate>Wed, 12 Jan 2022 19:00:00 +0000</pubDate>
+      
+      <guid>https://lukegriffith.co.uk/blog/macos-tmux-copy-and-paste-setup-post-2019/</guid>
+      <description>Hello blog, it&amp;rsquo;s been a minute - 4 years. You&amp;rsquo;ve been good? &amp;hellip; I mean I know you have, I&amp;rsquo;ve replatformed you 3 times and added no content. Me? Oh, nothing much… I&amp;rsquo;ve only got tmux copy and paste to work on MacOS!
+Why is this big, well the last 5 years I&amp;rsquo;ve come to work on a new macbook exactly twice - I find this blog post explaining how to setup copy and paste in a macos world by somebody named Chris Toomey - Indeed the future would be better, Chris if this wasn&amp;rsquo;t the first hit on google and wasn’t written in 2013.</description>
+    </item>
     
     <item>
       <title>VPC Flow Log Woes</title>
